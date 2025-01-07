@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function page() {
   return (
     <section
-      className="relative bg-cover bg-center min-h-screen h-full flex flex-col items-center justify-center text-center text-white -z-10 pb-24 pt-20"
+      className="relative bg-cover bg-center  h-full flex flex-col items-center justify-center text-center text-white -z-10 pb-24 pt-20"
       style={{
         backgroundImage: "url('/mainbg.png')",
         backgroundAttachment: "fixed", // Fixes the background position

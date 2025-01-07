@@ -12,7 +12,7 @@ export default function Hero({ setActiveSection }: NavBarProps) {
   return (
     <section className="w-full">
       <motion.div
-        className="relative z-10 px-4 md:px-16 flex flex-col-reverse md:flex-row justify-center items-center w-full"
+        className="relative z-10 px-4 md:px-16 flex flex-col-reverse md:flex-row justify-center items-center w-full md:pl-28 "
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
