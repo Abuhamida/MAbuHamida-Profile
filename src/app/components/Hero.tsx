@@ -25,7 +25,7 @@ export default function Hero({ setActiveSection }: NavBarProps) {
             Mohamed AbuHamida
           </h1>
           <p className="text-base md:text-lg lg:text-xl mb-6 space-mono-regular-italic w-5/6  text-left">
-            PROFESSIONAL ML,CV Developer | Front-End Developer
+            PROFESSIONAL ML,DL Developer | Front-End Developer
           </p>
           <div className="flex justify-center space-x-6 space-mono-regular-italic">
             <button
@@ -36,7 +36,7 @@ export default function Hero({ setActiveSection }: NavBarProps) {
             </button>
             <button
               onClick={() => handleSectionChange("projects")}
-              className="px-6 py-3 text-base md:text-lg  font-semibold bg-transparent border-2 border-white/50 text-white/50 rounded-lg hover:bg-white/50 hover:text-black transition"
+              className="px-6 py-3 text-base md:text-lg  font-semibold bg-transparent border-2 border-primary text-white/50 rounded-lg hover:bg-primary hover:text-white/50 hover:text-black transition"
             >
               My Projects
             </button>

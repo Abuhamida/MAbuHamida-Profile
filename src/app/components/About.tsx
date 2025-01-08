@@ -64,6 +64,13 @@ export default function About({ setActiveSection }: NavBarProps) {
             >
               Contact Me
             </button>
+            <a
+              href="/Mohamed-AbuHamida-Resume.pdf"
+              download="Mohamed-AbuHamida-Resume.pdf"
+              className="px-6 py-3 bg-secondary text-white/50 rounded-lg hover:bg-primary hover:text-white/50 transition"
+            >
+              Download CV
+            </a>
           </div>
         </motion.div>
         {/* Image Container with Gradient and Border Radius */}
