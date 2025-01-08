@@ -27,21 +27,32 @@ export default function Contact({ setActiveSection }: NavBarProps) {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    setFormSubmitted(true);
 
-    // Reset the form after submission
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    // Add functionality here to send data to a backend or email service
+      if (response.ok) {
+        console.log("Email sent successfully!");
+        setFormSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        console.error("Failed to send email.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   const contactMethods = [
     {
       name: "Email",
-      icon: AiOutlineMail ,
+      icon: AiOutlineMail,
       info: "mohamedabuhamida3@gmail.com",
       link: "mailto:mohamedabuhamida3@gmail.com",
     },
@@ -191,7 +202,7 @@ export default function Contact({ setActiveSection }: NavBarProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="mt-4 text-green-500 text-sm"
+              className="mt-4 text-primary text-sm"
             >
               Thank you for your message! I will get back to you soon.
             </motion.p>
