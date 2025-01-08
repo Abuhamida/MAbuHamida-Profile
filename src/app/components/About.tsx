@@ -51,26 +51,31 @@ export default function About({ setActiveSection }: NavBarProps) {
           </p>
 
           {/* Call-to-Action */}
-          <div className="flex justify-center lg:justify-start gap-4">
-            <button
-              onClick={() => handleSectionChange("projects")}
-              className="px-6 py-3 bg-primary text-white/50 rounded-lg hover:bg-secondary transition"
-            >
-              View Projects
-            </button>
-            <button
-              onClick={() => handleSectionChange("contact")}
-              className="px-6 py-3 border-2 border-primary text-white/50 rounded-lg hover:bg-primary hover:text-white/50 transition"
-            >
-              Contact Me
-            </button>
-            <a
-              href="/Mohamed-AbuHamida-Resume.pdf"
-              download="Mohamed-AbuHamida-Resume.pdf"
-              className="px-6 py-3 bg-secondary text-white/50 rounded-lg hover:bg-primary hover:text-white/50 transition"
-            >
-              Download CV
-            </a>
+          <div className="flex flex-col md:flex-row justify-center lg:justify-start gap-4">
+            <div className="flex justify-center lg:justify-start gap-4">
+              <button
+                onClick={() => handleSectionChange("projects")}
+                className="px-6 py-3 bg-primary text-white/50 rounded-lg hover:bg-secondary transition"
+              >
+                View Projects
+              </button>
+              <button
+                onClick={() => handleSectionChange("contact")}
+                className="px-6 py-3 border-2 border-primary text-white/50 rounded-lg hover:bg-primary hover:text-white/50 transition"
+              >
+                Contact Me
+              </button>
+            </div>
+            <div >
+              <button className="px-6 py-3 bg-secondary text-white/50 rounded-lg hover:bg-primary hover:text-white/50 transition">
+                <a
+                  href="/Mohamed-AbuHamida-Resume.pdf"
+                  download="Mohamed-AbuHamida-Resume.pdf"
+                >
+                  Download CV
+                </a>
+              </button>
+            </div>
           </div>
         </motion.div>
         {/* Image Container with Gradient and Border Radius */}
