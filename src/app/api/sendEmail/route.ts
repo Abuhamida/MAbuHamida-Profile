@@ -1,8 +1,8 @@
 // pages/api/sendEmail.ts
 import nodemailer from "nodemailer";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: Request) {
   const { name, email, message } = await req.json();
 
   const transporter = nodemailer.createTransport({
