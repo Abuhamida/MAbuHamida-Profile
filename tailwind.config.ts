@@ -9,9 +9,14 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "fixed-gradient":
+          "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(50,50,50,1) 50%, rgba(139,139,139,1) 100%)",
+      },
       colors: {
-        primary: "#0c1844",
+        primary: "#F1EFEF",
         secondary: "#c80036",
+        mainB: "#191717",
       },
     },
   },

@@ -53,7 +53,7 @@ export default function Projects({ setActiveSection }: NavBarProps) {
   return (
     <section
       id="projects"
-      className="flex w-full flex-col items-center justify-center  text-white px-6 "
+      className="flex w-full flex-col items-center justify-center px-6 py-20 "
     >
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
@@ -68,7 +68,7 @@ export default function Projects({ setActiveSection }: NavBarProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-lg text-center mb-12 max-w-lg"
+        className="text-lg text-center mb-12 max-w-lg text-white"
       >
         A showcase of some of the exciting projects I have worked on, blending
         creativity with cutting-edge technologies.
@@ -91,10 +91,10 @@ export default function Projects({ setActiveSection }: NavBarProps) {
               className="w-full h-48 object-cover"
             />
             <div className="p-6">
-              <h3 className="text-2xl font-semibold mb-3 text-primary">
+              <h3 className="text-2xl font-semibold mb-3 text-mainB">
                 {project.title}
               </h3>
-              <p className="text-primary/80 dark:text-gray-300 mb-4">
+              <p className="text-mainB dark:text-gray-300 mb-4">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
@@ -109,7 +109,7 @@ export default function Projects({ setActiveSection }: NavBarProps) {
               </div>
               <Link
                 href={project.link}
-                className="text-primary dark:text-secondary hover:underline"
+                className="text-mainB  hover:underline"
               >
                 View Project &rarr;
               </Link>

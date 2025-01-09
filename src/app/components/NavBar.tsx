@@ -119,13 +119,8 @@ export default function NavBar({ setActiveSection }: NavBarProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-white dark:bg-gray-900 text-white/50 dark:text-white h-[700px]"
-          style={{
-            backgroundImage: "url('/mainbg.png')",
-            backgroundAttachment: "fixed",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+          className="md:hidden bg-white dark:bg-gray-900 text-white/50 dark:text-white h-[700px] bg-fixed-gradient"
+          
         >
           <ul className="flex flex-col space-y-6 py-6 px-8 text-lg w-full justify-start items-start">
             {mainLinks.map((section) => (

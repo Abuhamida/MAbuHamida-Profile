@@ -71,7 +71,7 @@ export default function Skills({ setActiveSection }: NavBarProps) {
   return (
     <section
       id="skills"
-      className="flex w-full flex-col items-center justify-center  text-white px-6"
+      className="flex w-full flex-col items-center justify-center  text-white px-6 py-20"
     >
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
@@ -92,25 +92,23 @@ export default function Skills({ setActiveSection }: NavBarProps) {
         web development, AI, machine learning, and DevOps.
       </motion.p>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 w-full max-w-4xl"
-      >
-        {skills.map((skill) => (
-          <div
-            key={skill.name}
-            className="flex flex-col items-center bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg p-4 shadow-lg hover:scale-105 transform transition duration-300"
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 w-full max-w-4xl">
+        {skills.map((skill, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 ,transition:{duration:0.6,delay:index*0.2} } }
+            whileHover={{scale:1.1,transition:{duration:0.2}}}
+            className="flex flex-col items-center bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg p-4 shadow-lg hover:scale-105   "
           >
             <skill.icon
               className="text-5xl mb-4"
               style={{ color: skill.color }}
             />
             <h3 className="text-lg font-semibold">{skill.name}</h3>
-          </div>
+          </motion.div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

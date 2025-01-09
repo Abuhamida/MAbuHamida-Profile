@@ -85,7 +85,7 @@ export default function Contact({ setActiveSection }: NavBarProps) {
   return (
     <section
       id="contact"
-      className=" w-full flex flex-col items-center justify-center text-white px-6  "
+      className=" w-full flex flex-col items-center justify-center text-white px-6  py-20"
     >
       <motion.h1
         initial={{ opacity: 0, y: -20 }}

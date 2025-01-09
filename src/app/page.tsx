@@ -8,27 +8,23 @@ import Footer from "./components/Footer";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Main2 from "./components/Main";
 
 export default function Main() {
   const [activeSection, setActiveSection] = useState("hero");
 
- 
   return (
     <div
-      className="relative bg-cover bg-center w-full min-h-screen  flex flex-col items-center justify-center text-center text-white pb-24 pt-20"
-      style={{
-        backgroundImage: "url('/mainbg.png')",
-        backgroundAttachment: "fixed", // Fixes the background position
-        backgroundSize: "cover", // Ensures the image covers the entire section
-        backgroundPosition: "center", // Centers the background image
-      }}
+    className="relative w-full min-h-screen flex flex-col items-center justify-center text-center text-white md:pt-0 bg-fixed bg-cover bg-center bg-fixed-gradient"
+
+      
     >
       {/* Overlay for better readability */}
       <div className="absolute inset-0 bg-black bg-opacity-40  "></div>
       <NavBar setActiveSection={setActiveSection} />
       <div className=" flex flex-col justify-center items-center w-full z-10">
         {activeSection === "hero" && (
-          <Hero setActiveSection={setActiveSection} />
+          <Main2 setActiveSection={setActiveSection} />
         )}
         {activeSection === "about" && (
           <About setActiveSection={setActiveSection} />
