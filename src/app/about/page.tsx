@@ -4,11 +4,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-interface NavBarProps {
-  setActiveSection: (section: string) => void;
-}
 
-export default function Page({ setActiveSection }: NavBarProps) {
+
+export default function Page() {
   return (
     <section className="relative bg-cover bg-center  flex flex-col text-center text-white -z-10 pb-0   min-h-screen overflow-hidden ">
       <div
@@ -66,7 +64,7 @@ export default function Page({ setActiveSection }: NavBarProps) {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            onClick={() => setActiveSection("about")}
+            // onClick={() => setActiveSection("about")}
             className="px-6 py-3 text-base md:text-lg font-semibold bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary "
           >
             About Me
@@ -75,7 +73,7 @@ export default function Page({ setActiveSection }: NavBarProps) {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            onClick={() => setActiveSection("projects")}
+            // onClick={() => setActiveSection("projects")}
             className="px-6 py-3 text-base md:text-lg  font-semibold bg-transparent border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-secondary  "
           >
             My Projects
