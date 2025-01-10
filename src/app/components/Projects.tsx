@@ -28,7 +28,7 @@ export default function Projects({ setActiveSection }: NavBarProps) {
       title: "Asteroid Hazard Prediction",
       description:
         "A machine learning model using NASA's dataset to predict asteroid hazards with 97% accuracy.",
-      image: "/asteroid-prediction.png",
+      image: "/asteroid-prediction.jpg",
       link: "https://github.com/Abuhamida/asteroid-hazard-prediction",
       technologies: ["Python", "Random Forest", "Gradio"],
     },
@@ -36,7 +36,7 @@ export default function Projects({ setActiveSection }: NavBarProps) {
       title: "Customer Segmentation Analysis",
       description:
         "Data analysis and clustering project to identify e-commerce customer segments and behavioral insights.",
-      image: "/customer-segmentation.png",
+      image: "/customer-segmentation.jpg",
       link: "https://github.com/Abuhamida/E-commerce-Customer-Segmentation",
       technologies: ["Python", "K-Means", "Power BI"],
     },
@@ -44,7 +44,7 @@ export default function Projects({ setActiveSection }: NavBarProps) {
       title: "Mining Process Flotation Plant Analysis",
       description:
         "A comprehensive analysis of flotation plant data using EDA and a Random Forest model for accurate predictions. Deployed using Gradio and visualized with Power BI.",
-      image: "/mining-process.png",
+      image: "/mining-process.jpg",
       link: "https://github.com/Abuhamida/Quality-Prediction-in-a-Mining-Process",
       technologies: ["Python", "Random Forest", "Gradio", "Power BI"],
     },
@@ -78,10 +78,14 @@ export default function Projects({ setActiveSection }: NavBarProps) {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg overflow-hidden"
+            initial={{ opacity: 0, y: 50, filter: "grayscale(80%)" }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.6, delay: index * 0.3 },
+            }}
+            whileHover={{ filter: "grayscale(0%)",scale:1.05, transition: { duration: 0.4 } }}
+            className="bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg overflow-hidden "
           >
             <Image
               src={project.image}
@@ -107,10 +111,7 @@ export default function Projects({ setActiveSection }: NavBarProps) {
                   </span>
                 ))}
               </div>
-              <Link
-                href={project.link}
-                className="text-mainB  hover:underline"
-              >
+              <Link href={project.link} className="text-mainB  hover:underline">
                 View Project &rarr;
               </Link>
             </div>

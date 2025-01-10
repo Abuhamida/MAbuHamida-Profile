@@ -10,7 +10,7 @@ interface NavBarProps {
 
 export default function Main2({ setActiveSection }: NavBarProps) {
   return (
-    <section className="relative bg-cover bg-center w-full  flex flex-col text-center text-white -z-10 pb-0   min-h-screen overflow-hidden ">
+    <section className="relative bg-cover bg-center w-full  flex flex-col text-center text-white -z-50 pb-0   min-h-screen overflow-hidden ">
       <div
         className=" relative  min-h-screen w-full flex flex-col justify-center items-center "
         style={{
@@ -23,23 +23,21 @@ export default function Main2({ setActiveSection }: NavBarProps) {
           alt=""
           width={1000}
           height={1000}
-          className="w-72 h-[41rem] absolute bottom-0 md:w-[400px] md:h-[700px] z-10 pt-10 select-none "
+          className="w-72 h-[37rem] absolute bottom-10 md:bottom-0 md:w-[400px] md:h-[700px] z-10 pt-10 select-none "
         />
 
-        <div
-          className="w-full text-8xl md:text-[26rem] select-none font-extrabold text-left text-[#d8d8d8] opacity-50 object-cover "
-          style={{
-            backgroundImage:
-              "linear-gradient(to top, #303030 11%, #FFFFFF 71%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          <h1 className=" ab ">GRAMM</h1>
+        <div className="w-full absolute top-64 md:top-1/4 ">
+          <Image
+            src={"/GRAMM.png"}
+            alt="GRAMM"
+            width={3000}
+            height={3000}
+            className="w-full  opacity-40 select-none "
+          />
         </div>
-        <div className=" absolute bottom-5 z-50 text-center w-full flex flex-col justify-center items-center  ">
+        <div className=" absolute bottom-20 md:bottom-5 z-50 text-center w-full flex flex-col justify-center items-center  ">
           <div className=" relative w-full flex flex-col justify-center items-center pb-5 md:pb-0">
-            <div className="flex justify-center md:justify-around items-center gap-5 md:gap-2 w-full md:w-[35%]">
+            {/* <div className="flex justify-center md:justify-around items-center gap-5 md:gap-2 w-full md:w-[35%]">
               <h1 className="text-4xl md:text-7xl pinyon-script-regular">
                 Mohamed{" "}
               </h1>
@@ -54,7 +52,14 @@ export default function Main2({ setActiveSection }: NavBarProps) {
               <h1 className="text-4xl md:text-7xl pinyon-script-regular">
                 Ramadan
               </h1>
-            </div>
+            </div> */}
+            <Image
+              src={"/name.png"}
+              alt="name "
+              height={1000}
+              width={1000}
+              className="h-32 md:h-56 w-[19rem] md:w-[37rem] select-none"
+            />
           </div>
 
           <div className="w-full text-center text-[7px] md:text-base  flex flex-col justify-center items-center ">
@@ -72,21 +77,21 @@ export default function Main2({ setActiveSection }: NavBarProps) {
           </div>
         </div>
       </div>
-      <div className=" relative flex flex-col justify-center items-center min-h-10 w-full bg-black z-50 py-5">
+      <div className=" relative flex flex-col justify-center items-center min-h-10 w-full bg-black z-50 -mt-10 md:mt-0 md:py-5 mb-16">
         <div className="flex justify-center space-x-6 space-mono-regular-italic z-50">
           <motion.button
-            initial={{ opacity: 0, y: 100 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.3 }}
             onClick={() => setActiveSection("about")}
             className="px-6 py-3 text-base md:text-lg font-semibold bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary "
           >
             About Me
           </motion.button>
           <motion.button
-            initial={{ opacity: 0, y: 100 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             onClick={() => setActiveSection("projects")}
             className="px-6 py-3 text-base md:text-lg  font-semibold bg-transparent border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-secondary  "
           >

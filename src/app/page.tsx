@@ -39,7 +39,7 @@ export default function Main() {
           <Contact setActiveSection={setActiveSection} />
         )}
       </div>
-      <div className=" absolute bottom-0 w-full">
+      <div className=" absolute bottom-0 w-full z-10">
         <Footer />
       </div>
     </div>

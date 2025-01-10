@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');body {
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap");
+body {
   font-family: "Space Mono", serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -39,10 +39,15 @@
   font-style: normal;
 }
 
-
-.raleway {
-  font-family: "Raleway", serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
+.parisienne-regular {
+  font-family: "Parisienne", serif;
+  font-weight: 400;
   font-style: normal;
 }
+
+.my-soul-regular {
+  font-family: "My Soul", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
