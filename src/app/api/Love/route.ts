@@ -2,7 +2,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { supabase } from "@/app/data/supabaseClient";
 
-export async function PATCH(req: NextRequest, res: NextResponse) {
+export async function PATCH(req: NextRequest) {
   try {
     const { projectId, userId } = await req.json(); // Get the project ID from query parameters
 

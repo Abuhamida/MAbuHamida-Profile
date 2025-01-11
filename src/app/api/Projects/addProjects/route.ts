@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { supabase } from "@/app/data/supabaseClient";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
     try {
       const projectData = await req.json(); // Get the project data from the request body
   

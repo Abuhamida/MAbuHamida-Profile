@@ -1,7 +1,7 @@
 // PUT method to update a project by ID
 import { NextResponse, NextRequest } from "next/server";
 import { supabase } from "@/app/data/supabaseClient";
-export async function PUT(req: NextRequest, res: NextResponse) {
+export async function PUT(req: NextRequest) {
   try {
     const { projectId } = await req.json(); // Get the projectId from the request query params
     const updatedProject = await req.json(); // Get the updated project data from the request body

@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { supabase } from "@/app/data/supabaseClient";
 
-export async function DELETE(req: NextRequest, res: NextResponse) {
+export async function DELETE(req: NextRequest, ) {
     try {
       const { projectId } = await req.json(); // Get the projectId from the request query params
   
