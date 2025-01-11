@@ -54,7 +54,7 @@ export default function NavBar({ setActiveSection }: NavBarProps) {
 
   return (
     <header className="bg-opacity-10 backdrop-blur-lg fixed w-full md:w-12 md:hover:w-40  left-0 top-0 shadow-lg dark:bg-[#171717] space-mono-bold z-50  group transition-all duration-300">
-      <nav className="flex md:flex-col items-center justify-between md:min-h-screen py-4 px-5 md:px-0">
+      <nav className="flex md:flex-col items-center justify-between md:min-h-screen py-2 px-5 md:px-0">
         {/* Logo */}
         <Link
           href="/"
@@ -106,7 +106,7 @@ export default function NavBar({ setActiveSection }: NavBarProps) {
 
         {/* Mobile Menu Trigger */}
         <div
-          className="md:hidden text-2xl text-white dark:text-white cursor-pointer"
+          className="md:hidden text-2xl text-white dark:text-white cursor-pointer rounded-full shadow-sm shadow-slate-300 p-3"
           onClick={toggleMenu}
         >
           {isMenuOpen ? <FaTimes /> : <FaBars />}
