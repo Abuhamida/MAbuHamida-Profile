@@ -12,9 +12,9 @@ export default function ProjectList({
   onDelete: (id: string) => void;
 }) {
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full ">
       {projects && projects.length > 0 ? (
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+        <div className="w-full overflow-y-scroll h-[37rem]">
           {projects.map((project) => (
             <div key={project.id} className="border p-4 rounded shadow-sm">
               <img
@@ -79,7 +79,7 @@ export default function ProjectList({
         </div>
       ) : (
         <div className="flex w-full min-h-screen justify-center items-center">
-          <FaSpinner className="animate-spin text-blue-500 text-4xl transition-all duration-700" />
+          <FaSpinner className="animate-spin-slow text-blue-500 text-4xl transition-all duration-700" />
         </div>
       )}
     </div>

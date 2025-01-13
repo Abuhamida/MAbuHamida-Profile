@@ -19,7 +19,6 @@ export default function NavBar({ setActiveSection }: NavBarProps) {
   const mainLinks = [
     { name: "about", icon: IoIosContact, link: "#about" },
     { name: "projects", icon: SiCodeproject, link: "#projects" },
-    { name: "skills", icon: SiHyperskill, link: "#skills" },
     { name: "contact", icon: AiOutlineMessage, link: "#contact" },
   ];
 

@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import Hero from "./components/Hero";
-import About from "./components/About";
+import About from "./components/about/About";
 import Footer from "./components/Footer";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
@@ -32,9 +32,9 @@ export default function Main() {
         {activeSection === "projects" && (
           <Projects setActiveSection={setActiveSection} />
         )}
-        {activeSection === "skills" && (
+        {/* {activeSection === "skills" && (
           <Skills setActiveSection={setActiveSection} />
-        )}
+        )} */}
         {activeSection === "contact" && (
           <Contact setActiveSection={setActiveSection} />
         )}

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import ProjectsDashboard from "./component/ProjectsDashboard";
+import ProjectsDashboard from "./projects/ProjectsDashboard";
 
 export default function Page() {
   const [username, setUsername] = useState("");
@@ -27,20 +27,18 @@ export default function Page() {
     setActiveSection(null);
   };
 
- 
-
   const handleLogout = async () => {
     // Optionally reset any state or session data
     setActiveSection(null); // Reset active section
-  
+
     // Make the API call to log the user out
-    const response = await fetch("/api/logout", {
+    const response = await fetch("/api/user/logout", {
       method: "POST", // Ensure it's a POST request to logout
       headers: {
         "Content-Type": "application/json",
       },
     });
-  
+
     if (response.ok) {
       // On successful logout, redirect the user to the login page
       router.push("/login");
@@ -49,7 +47,7 @@ export default function Page() {
       console.error("Logout failed");
     }
   };
-  
+
   return (
     <div className="w-full flex flex-col justify-center items-center min-h-screen">
       {!activeSection && (

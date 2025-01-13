@@ -21,8 +21,9 @@ interface ProjectsDashboardProps {
   closeSection: () => void;
 }
 
-
-export default function ProjectsDashboard( {closeSection}:ProjectsDashboardProps ) {
+export default function ProjectsDashboard({
+  closeSection,
+}: ProjectsDashboardProps) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -96,13 +97,13 @@ export default function ProjectsDashboard( {closeSection}:ProjectsDashboardProps
 
   return (
     <div className="p-6 w-full">
-      <div className="flex justify-between items-center mb-5 w-full">
-      <button
-        onClick={closeSection}
-        className=" px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-      >
-        Close Section
-      </button>
+      <div className="flex justify-between items-center mb-5 w-full fixed top-0 left-0 px-20 py-3 bg-primary">
+        <button
+          onClick={closeSection}
+          className=" px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+        >
+          Close Section
+        </button>
         <h1 className="text-2xl font-bold">Projects Dashboard </h1>
         {add ? (
           <button
@@ -123,26 +124,31 @@ export default function ProjectsDashboard( {closeSection}:ProjectsDashboardProps
 
       {error && <p className="text-red-500 mb-4">{error}</p>}
       {/* Add Project Form */}
-      {add && <AddProjectForm onAdd={addProject} />}
+      <div className="w-full flex justify-center items-center gap-5 pt-12">
+        {(add || editingProject) && (
+          <div className="w-full">
+            {add && <AddProjectForm onAdd={addProject} />}
+            {!add && editingProject && (
+              <EditProjectForm
+                project={editingProject}
+                onSave={updateProject}
+                onCancel={() => setEditingProject(null)}
+              />
+            )}
+          </div>
+        )}
 
-      {/* Edit Project Form */}
-      {editingProject && (
-        <EditProjectForm
-          project={editingProject}
-          onSave={updateProject}
-          onCancel={() => setEditingProject(null)}
-        />
-      )}
-
-      {/* Project List */}
-      <ProjectList
-        projects={projects}
-        onEdit={(project) => {
-          setEditingProject(project);
-          setAdd(false); // Hide the Add Project Form when editing
-        }}
-        onDelete={deleteProject}
-      />
+        <div className="w-full max-w-screen-md">
+          <ProjectList
+            projects={projects}
+            onEdit={(project) => {
+              setEditingProject(project);
+              setAdd(false); // Hide the Add Project Form when editing
+            }}
+            onDelete={deleteProject}
+          />
+        </div>
+      </div>
     </div>
   );
 }
