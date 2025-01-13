@@ -3,8 +3,9 @@ import { NextResponse, NextRequest } from "next/server";
 import { supabase } from "@/app/data/supabaseClient";
 export async function PUT(req: NextRequest) {
   try {
-    const { projectId } = await req.json(); // Get the projectId from the request query params
+    // Get the projectId from the request query params
     const updatedProject = await req.json(); // Get the updated project data from the request body
+    const projectId = updatedProject.id;
 
     if (!projectId) {
       return NextResponse.json({ error: "Project ID is required" });
