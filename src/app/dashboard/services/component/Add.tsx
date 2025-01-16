@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
-export default function AddForm({ onAdd }: { onAdd: (Skills: any) => void }) {
-  const [newSkills, setNewSkills] = useState<any>({
+export default function AddForm({ onAdd }: { onAdd: (Services: any) => void }) {
+  const [newServices, setNewServices] = useState<any>({
     name: "",
     category: "",
     description: "",
@@ -35,30 +35,30 @@ export default function AddForm({ onAdd }: { onAdd: (Skills: any) => void }) {
   const handleAdd = () => {
     // Validate required fields
     if (
-      !newSkills.name ||
-      !newSkills.category ||
-      !newSkills.description ||
-      !newSkills.price ||
-      !newSkills.features ||
-      !newSkills.discount ||
-      !newSkills.delivery ||
-      !newSkills.revision
+      !newServices.name ||
+      !newServices.category ||
+      !newServices.description ||
+      !newServices.price ||
+      !newServices.features ||
+      !newServices.discount ||
+      !newServices.delivery ||
+      !newServices.revision
     ) {
       setErrorMessage("Please Fill All Fields");
       return;
     }
 
-    const formattedSkills = {
-      ...newSkills,
-      features: newSkills.features
+    const formattedServices = {
+      ...newServices,
+      features: newServices.features
         .split(",")
         .map((s: string) => s.trim()),
     };
 
-    onAdd(formattedSkills);
+    onAdd(formattedServices);
 
-    setSubmitTrue("Skills Added Successfully");
-    setNewSkills({
+    setSubmitTrue("Services Added Successfully");
+    setNewServices({
       name: "",
       category: "",
       description: "",
@@ -72,15 +72,15 @@ export default function AddForm({ onAdd }: { onAdd: (Skills: any) => void }) {
 
   return (
     <div className="mb-6 min-w-[600px]">
-      <h2 className="text-xl font-semibold mb-4">Add New Skills</h2>
+      <h2 className="text-xl font-semibold mb-4">Add New Services</h2>
       <div className="grid grid-cols-1 gap-4">
         <div className="flex gap-5 w-full justify-center items-center">
           <input
             type="text"
             placeholder="Name"
-            value={newSkills.name}
+            value={newServices.name}
             onChange={(e) =>
-              setNewSkills({ ...newSkills, name: e.target.value })
+              setNewServices({ ...newServices, name: e.target.value })
             }
             className="border px-4 py-2 rounded w-full"
           />
@@ -89,62 +89,62 @@ export default function AddForm({ onAdd }: { onAdd: (Skills: any) => void }) {
         <input
           type="text"
           placeholder="Category"
-          value={newSkills.category}
+          value={newServices.category}
           onChange={(e) =>
-            setNewSkills({ ...newSkills, category: e.target.value })
+            setNewServices({ ...newServices, category: e.target.value })
           }
           className="border px-4 py-2 rounded"
         />
         <textarea
           placeholder="Description"
-          value={newSkills.description}
+          value={newServices.description}
           onChange={(e) =>
-            setNewSkills({ ...newSkills, description: e.target.value })
+            setNewServices({ ...newServices, description: e.target.value })
           }
           className="border px-4 py-2 rounded"
         />
         <input
           type="text"
           placeholder="Price"
-          value={newSkills.price}
+          value={newServices.price}
           onChange={(e) =>
-            setNewSkills({ ...newSkills, price: e.target.value })
+            setNewServices({ ...newServices, price: e.target.value })
           }
           className="border px-4 py-2 rounded"
         />
         <input
           type="text"
           placeholder="Discount"
-          value={newSkills.discount}
+          value={newServices.discount}
           onChange={(e) =>
-            setNewSkills({ ...newSkills, discount: e.target.value })
+            setNewServices({ ...newServices, discount: e.target.value })
           }
           className="border px-4 py-2 rounded"
         />
         <input
           type="text"
           placeholder="Features (comma separated)"
-          value={newSkills.features}
+          value={newServices.features}
           onChange={(e) =>
-            setNewSkills({ ...newSkills, features: e.target.value })
+            setNewServices({ ...newServices, features: e.target.value })
           }
           className="border px-4 py-2 rounded"
         />
         <input
           type="text"
           placeholder="Delivery Time"
-          value={newSkills.delivery}
+          value={newServices.delivery}
           onChange={(e) =>
-            setNewSkills({ ...newSkills, delivery: e.target.value })
+            setNewServices({ ...newServices, delivery: e.target.value })
           }
           className="border px-4 py-2 rounded"
         />
         <input
           type="text"
           placeholder="Revisions"
-          value={newSkills.revision}
+          value={newServices.revision}
           onChange={(e) =>
-            setNewSkills({ ...newSkills, revision: e.target.value })
+            setNewServices({ ...newServices, revision: e.target.value })
           }
           className="border px-4 py-2 rounded"
         />

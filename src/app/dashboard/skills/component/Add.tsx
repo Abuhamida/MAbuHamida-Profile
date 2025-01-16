@@ -46,7 +46,7 @@ export default function AddForm({ onAdd }: { onAdd: (project: any) => void }) {
 
   return (
     <div className="mb-6">
-      <h2 className="text-xl font-semibold mb-4">Add New Project</h2>
+      <h2 className="text-xl font-semibold mb-4">Add New Skills</h2>
       <div className="grid grid-cols-1 gap-4">
         <div className="flex gap-5 w-full justify-center items-center">
           <input

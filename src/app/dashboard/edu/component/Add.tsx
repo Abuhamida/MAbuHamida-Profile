@@ -46,7 +46,7 @@ export default function AddEduForm({ onAdd }: { onAdd: (Edu: any) => void }) {
 
   return (
     <div className="mb-6 min-w-[600px]">
-      <h2 className="text-xl font-semibold mb-4">Add New Award</h2>
+      <h2 className="text-xl font-semibold mb-4">Add New Education</h2>
       <div className="grid grid-cols-1 gap-4">
         <input
           type="text"
