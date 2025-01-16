@@ -48,7 +48,7 @@ export default function AddExperienceForm({ onAdd }: { onAdd: (Experience: any) 
 
   return (
     <div className="mb-6 min-w-[600px]">
-      <h2 className="text-xl font-semibold mb-4">Add New Award</h2>
+      <h2 className="text-xl font-semibold mb-4">Add New Experience</h2>
       <div className="grid grid-cols-1 gap-4">
         <input
           type="text"
