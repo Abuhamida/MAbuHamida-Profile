@@ -100,7 +100,9 @@ export default function Price({ setActiveSection }: NavBarProps) {
 
             {selectedService && (
               <div className="text-white p-6 rounded-lg shadow-lg flex flex-col items-center mt-6">
-                <p className="text-gray-400 mb-4">{selectedService.description}</p>
+                <p className="text-gray-400 mb-4">
+                  {selectedService.description}
+                </p>
                 {selectedService.discount > 0 && (
                   <p className="text-red-500 text-sm mb-2">
                     Save {selectedService.discount}%!
@@ -119,7 +121,7 @@ export default function Price({ setActiveSection }: NavBarProps) {
                   </div>
                 )}
                 <ul className="text-sm text-gray-300 my-4 space-y-1 text-start">
-                  {selectedService.features.map((feature:any, idx:any) => (
+                  {selectedService.features.map((feature: any, idx: any) => (
                     <li key={idx}>✓ {feature}</li>
                   ))}
                 </ul>
@@ -133,8 +135,8 @@ export default function Price({ setActiveSection }: NavBarProps) {
                   ORDER NOW →
                 </button>
                 <div className="text-xs text-gray-400 flex justify-between mt-2 w-1/2">
-                  <p>{selectedService.delivery}</p>
-                  <p>{selectedService.revision}</p>
+                  <p>{selectedService.delivery} Days</p>
+                  <p>{selectedService.revision} Revisions</p>
                 </div>
               </div>
             )}

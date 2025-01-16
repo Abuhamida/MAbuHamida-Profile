@@ -36,7 +36,9 @@ export default function Edu() {
                   {education.institution}
                 </span>
                 <span className="text-white/50 dark:text-gray-500 italic">
-                  {education.year}
+                  {new Date().getFullYear() <= education.year
+                    ? `Expected Year ${education.year} `
+                    : education.year}
                 </span>
               </div>
               <p className="text-white/70 dark:text-gray-300">

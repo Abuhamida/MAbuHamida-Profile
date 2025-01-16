@@ -13,7 +13,7 @@ export async function PUT(req: NextRequest) {
 
     // Update the project in the "projects" table
     const { data, error } = await supabase
-      .from("projects")
+      .from("education")
       .update(updatedData)
       .eq("id", projectId);
 

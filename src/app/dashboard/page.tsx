@@ -3,6 +3,10 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import ProjectsDashboard from "./projects/ProjectsDashboard";
+import AwardsDashboard from "./awards/AwardsDashboard";
+import ServicesDashboard from "./services/ServicesDashboard";
+import SkillsDashboard from "./skills/SkillsDashboard";
+import EduDashboard from "./edu/EduDashboard";
 
 export default function Page() {
   const [username, setUsername] = useState("");
@@ -78,6 +82,12 @@ export default function Page() {
             >
               Awards
             </button>
+            <button
+              onClick={() => setActiveSection("Services")}
+              className="px-4 py-2 text-secondary border border-secondary hover:scale-110 hover:bg-secondary/50 rounded-xl"
+            >
+              Services
+            </button>
           </div>
           <button
             onClick={handleLogout}
@@ -93,20 +103,22 @@ export default function Page() {
       )}
       {activeSection === "Education" && (
         <div>
-          Education Content
-          <button onClick={closeSection}>Close</button>
+          <EduDashboard closeSection={closeSection} />
         </div>
       )}
       {activeSection === "Skills" && (
         <div>
-          Skills Content
-          <button onClick={closeSection}>Close</button>
+          <SkillsDashboard closeSection={closeSection} />
         </div>
       )}
       {activeSection === "Awards" && (
         <div>
-          Awards Content
-          <button onClick={closeSection}>Close</button>
+          <AwardsDashboard closeSection={closeSection} />
+        </div>
+      )}
+      {activeSection === "Services" && (
+        <div>
+          <ServicesDashboard closeSection={closeSection} />
         </div>
       )}
     </div>

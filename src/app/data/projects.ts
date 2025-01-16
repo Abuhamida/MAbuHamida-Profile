@@ -108,50 +108,99 @@ export const projects = [
   },
 ];
 
-export const skills = {
-  category: {
-    ml: [
-      { name: "Python", percentage: 90 },
-      { name: "TensorFlow", percentage: 85 },
-      { name: "PyTorch", percentage: 80 },
-      { name: "Scikit-learn", percentage: 85 },
-      { name: "OpenCV", percentage: 75 },
-    ],
-    frontend: [
-      { name: "HTML", percentage: 95 },
-      { name: "CSS", percentage: 90 },
-      { name: "JavaScript", percentage: 92 },
-      { name: "React", percentage: 88 },
-      { name: "TypeScript", percentage: 85 },
-      { name: "Tailwind CSS", percentage: 90 },
-    ],
+export const skills = [
+  {
+    id: 1,
+    category_id: 1,
+    name: "Python",
+    percentage: 90,
   },
-};
+  {
+    id: 2,
+    category_id: 1,
+    name: "TensorFlow",
+    percentage: 85,
+  },
+  {
+    id: 3,
+    category_id: 1,
+    name: "PyTorch",
+    percentage: 80,
+  },
+  {
+    id: 4,
+    category_id: 1,
+    name: "Scikit-learn",
+    percentage: 85,
+  },
+  {
+    id: 5,
+    category_id: 1,
+    name: "OpenCV",
+    percentage: 75,
+  },
+  {
+    id: 6,
+    category_id: 2,
+    name: "HTML",
+    percentage: 95,
+  },
+  {
+    id: 7,
+    category_id: 2,
+    name: "CSS",
+    percentage: 90,
+  },
+  {
+    id: 8,
+    category_id: 2,
+    name: "JavaScript",
+    percentage: 92,
+  },
+  {
+    id: 9,
+    category_id: 2,
+    name: "React",
+    percentage: 88,
+  },
+  {
+    id: 10,
+    category_id: 2,
+    name: "TypeScript",
+    percentage: 85,
+  },
+  {
+    id: 11,
+    category_id: 2,
+    name: "Tailwind CSS",
+    percentage: 90,
+  },
+];
 
 export const educationDetails = [
   {
     id: 1,
     institution: "Faculty of Artificial Intelligence",
     degree: "Bachelor's in Artificial Intelligence",
-    year: "Expected 2025",
+    year: 2025,
   },
   {
     id: 2,
     institution: "DEPI",
     degree: "Microsoft Machine Learning Engineer",
-    year: "Expected 2025",
+    year: 2025,
   },
   {
     id: 3,
     institution: "NTI",
     degree: "Machine Learning for Data Science ",
-    year: "2024",
+    year: 2024,
   },
   {
     id: 4,
     institution: "Microsoft",
     degree: "Data Science Training Program (Batch-1)",
-    year: "2024",
+    year: 2024,
   },
 ];
 

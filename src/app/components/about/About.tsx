@@ -33,11 +33,7 @@ export default function About({ setActiveSection }: NavBarProps) {
           <div className=" w-2/3 md:w-full">
             <div className="flex flex-col md:flex-row justify-between items-center rounded-xl shadow shadow-white/10">
               <button
-                className={`${
-                  visibleSection === "Skills"
-                    ? "shadow-white/10 text-secondary shadow-md"
-                    : ""
-                } px-4 py-5  w-full text-center hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700 `}
+                className={` px-4 py-5 w-full text-center shadow-white/10 text-secondary shadow-md hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700 `}
               >
                 <a
                   href="/Mohamed-AbuHamida-Resume.pdf"
@@ -47,21 +43,13 @@ export default function About({ setActiveSection }: NavBarProps) {
                 </a>
               </button>
               <button
-                className={`${
-                  visibleSection === "education"
-                    ? "shadow-white/10 text-secondary shadow-md"
-                    : ""
-                } px-4 py-5  w-full text-center hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700 `}
+                className={` px-4 py-5  w-full text-center hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700 `}
                 onClick={() => setActiveSection("projects")}
               >
                 View Projects
               </button>
               <button
-                className={`${
-                  visibleSection === "experience"
-                    ? "shadow-white/10 text-secondary shadow-md"
-                    : ""
-                } px-4 py-5  w-full text-center hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700 `}
+                className={`px-4 py-5  w-full text-center hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700 `}
                 onClick={() => setActiveSection("contact")}
               >
                 Contact

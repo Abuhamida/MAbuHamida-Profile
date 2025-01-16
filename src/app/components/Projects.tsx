@@ -20,15 +20,15 @@ interface Project {
   link?: string;
   section: string[];
   love: number;
-  [key: string]: any; // Allow for additional properties
 }
 
 export default function Projects({ setActiveSection }: NavBarProps) {
   const [isProject, setIsProject] = useState(false);
-  const [project, setProject] = useState<object | null>(null);
-  const [projects, setProjects] = useState<any[]>([]); // Initialize state with an empty array
+  const [project, setProject] = useState<Project | null>(null);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [visibleSection, setVisibleSection] = useState("all");
 
-  const handelProjectView = (project: object) => {
+  const handelProjectView = (project: Project) => {
     setProject(project);
     setIsProject(true);
   };
@@ -74,6 +74,17 @@ export default function Projects({ setActiveSection }: NavBarProps) {
     setProjects(updatedProjects);
   };
 
+  // Extract unique sections
+  const sections = Array.from(
+    new Set(projects.flatMap((project) => project.section))
+  );
+
+  // Filtered projects based on visibleSection
+  const filteredProjects =
+    visibleSection === "all"
+      ? projects
+      : projects.filter((project) => project.section.includes(visibleSection));
+
   return (
     <section
       id="projects"
@@ -109,9 +120,37 @@ export default function Projects({ setActiveSection }: NavBarProps) {
           >
             Visit my portfolio and keep your feedback
           </motion.p>
-          {projects && projects.length > 0 ? (
+          <div className=" w-2/3 mb-10">
+            <div className="flex flex-col md:flex-row justify-between items-center rounded-xl shadow shadow-white/10">
+              <button
+                className={`${
+                  visibleSection === "all"
+                    ? "shadow-white/10 text-secondary shadow-md"
+                    : ""
+                } px-4 py-5  w-full text-center hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700 `}
+                onClick={() => setVisibleSection("all")}
+              >
+                All
+              </button>
+
+              {sections.map((section, index) => (
+                <button
+                  key={index}
+                  className={`${
+                    visibleSection === section
+                      ? "shadow-white/10 text-secondary shadow-md"
+                      : ""
+                  } px-4 py-5  w-full text-center hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700 `}
+                  onClick={() => setVisibleSection(section)}
+                >
+                  {section}
+                </button>
+              ))}
+            </div>
+          </div>
+          {filteredProjects && filteredProjects.length > 0 ? (
             <div className="flex flex-wrap gap-10 w-full justify-center items-center">
-              {projects.map((project, index) => (
+              {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
                   initial={{
