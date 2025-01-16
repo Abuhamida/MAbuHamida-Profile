@@ -7,6 +7,7 @@ import AwardsDashboard from "./awards/AwardsDashboard";
 import ServicesDashboard from "./services/ServicesDashboard";
 import SkillsDashboard from "./skills/SkillsDashboard";
 import EduDashboard from "./edu/EduDashboard";
+import ExperienceDashboard from "./experience/ExperienceDashboard";
 
 export default function Page() {
   const [username, setUsername] = useState("");
@@ -52,42 +53,30 @@ export default function Page() {
     }
   };
 
+  const dashboardItems = [
+    "Projects",
+    "Education",
+    "Skills",
+    "Awards",
+    "Services",
+    "Experience",
+  ];
+
   return (
     <div className="w-full flex flex-col justify-center items-center min-h-screen">
       {!activeSection && (
         <div className="w-full flex flex-col justify-center items-center">
           <h1 className="text-2xl font-bold">Mohamed AbuHamida Dashboard</h1>
           <div className="flex justify-center gap-5 items-center w-full pt-10">
-            <button
-              onClick={() => setActiveSection("Projects")}
-              className="px-4 py-2 text-secondary border border-secondary hover:scale-110 hover:bg-secondary/50 rounded-xl"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => setActiveSection("Education")}
-              className="px-4 py-2 text-secondary border border-secondary hover:scale-110 hover:bg-secondary/50 rounded-xl"
-            >
-              Education
-            </button>
-            <button
-              onClick={() => setActiveSection("Skills")}
-              className="px-4 py-2 text-secondary border border-secondary hover:scale-110 hover:bg-secondary/50 rounded-xl"
-            >
-              Skills
-            </button>
-            <button
-              onClick={() => setActiveSection("Awards")}
-              className="px-4 py-2 text-secondary border border-secondary hover:scale-110 hover:bg-secondary/50 rounded-xl"
-            >
-              Awards
-            </button>
-            <button
-              onClick={() => setActiveSection("Services")}
-              className="px-4 py-2 text-secondary border border-secondary hover:scale-110 hover:bg-secondary/50 rounded-xl"
-            >
-              Services
-            </button>
+            {dashboardItems.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveSection(item)}
+                className="px-4 py-2 text-secondary border border-secondary hover:scale-110 hover:bg-secondary/50 rounded-xl"
+              >
+                {item}
+              </button>
+            ))}
           </div>
           <button
             onClick={handleLogout}
@@ -119,6 +108,11 @@ export default function Page() {
       {activeSection === "Services" && (
         <div>
           <ServicesDashboard closeSection={closeSection} />
+        </div>
+      )}
+      {activeSection === "Experience" && (
+        <div>
+          <ExperienceDashboard closeSection={closeSection} />
         </div>
       )}
     </div>
