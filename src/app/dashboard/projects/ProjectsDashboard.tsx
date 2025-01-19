@@ -96,37 +96,37 @@ export default function ProjectsDashboard({
   }, []);
 
   return (
-    <div className="p-6 w-full">
-      <div className="flex justify-between items-center mb-5 w-full fixed top-0 left-0 px-20 py-3 bg-primary">
+    <div className="md:p-6 w-full bg-mainB text-primary min-h-screen">
+      <div className="flex justify-between items-center mb-5 w-full fixed top-0 left-0 px-2 md:px-8 py-4 bg-gradient-to-r from-[#010101] to-[#191717] text-white z-10">
         <button
           onClick={closeSection}
-          className=" px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          className="px-4 py-2 bg-secondary text-white rounded hover:bg-secondary transition duration-200"
         >
-          Close Section
+          Close 
         </button>
-        <h1 className="text-2xl font-bold">Projects Dashboard </h1>
+        <h1 className="md:text-2xl font-bold">Projects Dashboard</h1>
         {add ? (
           <button
             onClick={() => setAdd(false)}
-            className="px-4 py-2 bg-secondary text-white rounded-lg hover:border border-secondary hover:text-secondary hover:bg-white transition-colors duration-200"
+            className="px-4 py-2 bg-primary text-mainB rounded-lg hover:border border-secondary hover:text-secondary hover:bg-box-gradient-2 transition-colors duration-200"
           >
             Cancel
           </button>
         ) : (
           <button
             onClick={() => setAdd(true)}
-            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:border border-green-600 hover:text-green-600 hover:bg-white transition-colors duration-200"
+            className="px-4 py-2 bg-secondary text-white rounded-lg hover:border border-secondary hover:text-secondary hover:bg-box-gradient-2 transition-colors duration-200"
           >
-            Add New Project
+            Add 
           </button>
         )}
       </div>
 
-      {error && <p className="text-red-500 mb-4">{error}</p>}
+      {error && <p className="text-secondary mt-16 mb-4">{error}</p>}
       {/* Add Project Form */}
-      <div className="w-full flex justify-center items-center gap-5 pt-12">
+      <div className="w-full flex flex-col  justify-center items-start gap-5 pt-20 ">
         {(add || editingProject) && (
-          <div className="w-full">
+          <div className="w-full ">
             {add && <AddProjectForm onAdd={addProject} />}
             {!add && editingProject && (
               <EditProjectForm
@@ -138,7 +138,7 @@ export default function ProjectsDashboard({
           </div>
         )}
 
-        <div className="w-full max-w-screen-md">
+        <div className="w-full ">
           <ProjectList
             projects={projects}
             onEdit={(project) => {

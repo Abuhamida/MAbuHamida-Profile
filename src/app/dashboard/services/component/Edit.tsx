@@ -59,7 +59,7 @@ export default function EditForm({
   };
 
   return (
-    <div className="mt-6 min-w-[600px]">
+    <div className="mt-6 ">
       <h2 className="text-xl font-semibold mb-4">Edit Services</h2>
       <div className="grid grid-cols-1 gap-4">
         <input
@@ -69,7 +69,7 @@ export default function EditForm({
           onChange={(e) =>
             setEditingServices({ ...editingServices, name: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <input
           type="text"
@@ -78,7 +78,7 @@ export default function EditForm({
           onChange={(e) =>
             setEditingServices({ ...editingServices, category: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <textarea
           placeholder="Description"
@@ -89,7 +89,7 @@ export default function EditForm({
               description: e.target.value,
             })
           }
-          className="border px-4 py-2 rounded"
+          className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <input
           type="text"
@@ -105,7 +105,7 @@ export default function EditForm({
               features: e.target.value.split(",").map((f: string) => f.trim()),
             })
           }
-          className="border px-4 py-2 rounded"
+          className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <input
           type="number"
@@ -117,7 +117,7 @@ export default function EditForm({
               price: parseFloat(e.target.value) || 0,
             })
           }
-          className="border px-4 py-2 rounded"
+          className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <input
           type="number"
@@ -129,7 +129,7 @@ export default function EditForm({
               discount: parseFloat(e.target.value) || 0,
             })
           }
-          className="border px-4 py-2 rounded"
+          className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <input
           type="text"
@@ -141,7 +141,7 @@ export default function EditForm({
               delivery: e.target.value,
             })
           }
-          className="border px-4 py-2 rounded"
+          className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <input
           type="text"
@@ -153,24 +153,22 @@ export default function EditForm({
               revision: e.target.value,
             })
           }
-          className="border px-4 py-2 rounded"
+          className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
         />
-        <div className="flex gap-5 w-full justify-center items-center">
-          <div className="mt-4 w-full flex gap-3 justify-end items-center ">
+          <div className="mt-4 w-full flex gap-2 justify-end items-center ">
             <button
               onClick={handleSave}
-              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+              className="px-6 py-3 bg-secondary text-white rounded-lg hover:bg-[#c80036] focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
             >
               Save Changes
             </button>
             <button
               onClick={onCancel}
-              className="bg-gray-500 text-white px-4 py-2 rounded ml-2 hover:bg-gray-600"
+              className="px-6 py-3 bg-[#555] text-white rounded-lg hover:bg-[#444] focus:outline-none focus:ring-2 focus:ring-[#888] w-full sm:w-auto"
             >
               Cancel
             </button>
           </div>
-        </div>
       </div>
     </div>
   );

@@ -62,21 +62,21 @@ export default function EditForm({
   };
 
   return (
-    <div className="mt-6 min-w-[600px]">
-      <h2 className="text-xl font-semibold mb-4">Edit Skills</h2>
+    <div className="mt-6  mx-auto md:px-6 md:py-4 ">
+      <h2 className="text-xl font-semibold mb-4 text-white">Edit Skills</h2>
       <div className="grid grid-cols-1 gap-4">
         <input
           type="text"
-          placeholder="name"
+          placeholder="Name"
           value={editingSkills.name}
           onChange={(e) =>
             setEditingSkills({ ...editingSkills, name: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+         className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <input
-        type="number"
-          placeholder="percentage"
+          type="number"
+          placeholder="Percentage"
           value={editingSkills.percentage.toString()} // Convert percentage to string for textarea
           onChange={(e) =>
             setEditingSkills({
@@ -84,7 +84,7 @@ export default function EditForm({
               percentage: Number(e.target.value),
             })
           }
-          className="border px-4 py-2 rounded"
+         className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <input
           type="number"
@@ -96,19 +96,19 @@ export default function EditForm({
               category_id: Number(e.target.value),
             })
           }
-          className="border px-4 py-2 rounded"
+         className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
         />
-        {/* Assuming `year` input should be added here if needed */}
+
         <div className="flex justify-end gap-3 mt-4">
           <button
             onClick={handleSave}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+            className="bg-secondary text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
           >
             Save Changes
           </button>
           <button
             onClick={onCancel}
-            className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+            className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition-colors"
           >
             Cancel
           </button>

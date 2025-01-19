@@ -27,28 +27,23 @@ export default function Page() {
     }
   };
 
-  // Function to close the current section
   const closeSection = () => {
     setActiveSection(null);
   };
 
   const handleLogout = async () => {
-    // Optionally reset any state or session data
-    setActiveSection(null); // Reset active section
+    setActiveSection(null);
 
-    // Make the API call to log the user out
     const response = await fetch("/api/user/logout", {
-      method: "POST", // Ensure it's a POST request to logout
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
     });
 
     if (response.ok) {
-      // On successful logout, redirect the user to the login page
       router.push("/login");
     } else {
-      // Handle any errors (optional)
       console.error("Logout failed");
     }
   };
@@ -63,16 +58,16 @@ export default function Page() {
   ];
 
   return (
-    <div className="w-full flex flex-col justify-center items-center min-h-screen">
+    <div className="w-full min-h-screen bg-mainB text-primary flex flex-col items-center p-6">
       {!activeSection && (
-        <div className="w-full flex flex-col justify-center items-center">
-          <h1 className="text-2xl font-bold">Mohamed AbuHamida Dashboard</h1>
-          <div className="flex justify-center gap-5 items-center w-full pt-10">
+        <div className="w-full flex flex-col items-center text-center">
+          <h1 className="text-4xl font-bold text-white mb-8">Mohamed AbuHamida Dashboard</h1>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
             {dashboardItems.map((item, index) => (
               <button
                 key={index}
                 onClick={() => setActiveSection(item)}
-                className="px-4 py-2 text-secondary border border-secondary hover:scale-110 hover:bg-secondary/50 rounded-xl"
+                className="px-6 py-3 bg-gradient-to-r from-[#2D2D2D] to-[#3C3C3C] text-secondary border border-secondary rounded-xl hover:scale-105 hover:from-[#3C3C3C] hover:to-[#2D2D2D] transition-all duration-300 shadow-lg"
               >
                 {item}
               </button>
@@ -80,7 +75,7 @@ export default function Page() {
           </div>
           <button
             onClick={handleLogout}
-            className="mt-6 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-200"
+            className="mt-10 bg-red-600 px-6 py-3 rounded-lg text-white hover:bg-red-700 transition duration-200 shadow-md"
           >
             Logout
           </button>
@@ -91,29 +86,19 @@ export default function Page() {
         <ProjectsDashboard closeSection={closeSection} />
       )}
       {activeSection === "Education" && (
-        <div>
-          <EduDashboard closeSection={closeSection} />
-        </div>
+        <EduDashboard closeSection={closeSection} />
       )}
       {activeSection === "Skills" && (
-        <div>
-          <SkillsDashboard closeSection={closeSection} />
-        </div>
+        <SkillsDashboard closeSection={closeSection} />
       )}
       {activeSection === "Awards" && (
-        <div>
-          <AwardsDashboard closeSection={closeSection} />
-        </div>
+        <AwardsDashboard closeSection={closeSection} />
       )}
       {activeSection === "Services" && (
-        <div>
-          <ServicesDashboard closeSection={closeSection} />
-        </div>
+        <ServicesDashboard closeSection={closeSection} />
       )}
       {activeSection === "Experience" && (
-        <div>
-          <ExperienceDashboard closeSection={closeSection} />
-        </div>
+        <ExperienceDashboard closeSection={closeSection} />
       )}
     </div>
   );

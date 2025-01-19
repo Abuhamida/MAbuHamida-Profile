@@ -58,7 +58,7 @@ export default function EditForm({
   };
 
   return (
-    <div className="mt-6 min-w-[600px]">
+    <div className="mt-6 ">
       <h2 className="text-xl font-semibold mb-4">Edit Experience</h2>
       <div className="grid grid-cols-1 gap-4">
         <input
@@ -68,7 +68,7 @@ export default function EditForm({
           onChange={(e) =>
             setEditingExperience({ ...editingExperience, role: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
         />
         <input
           type="text"
@@ -80,7 +80,7 @@ export default function EditForm({
               company: e.target.value,
             })
           }
-          className="border px-4 py-2 rounded"
+          className="p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
         />
         <textarea
           placeholder="description"
@@ -91,7 +91,7 @@ export default function EditForm({
               description: e.target.value,
             })
           }
-          className="border px-4 py-2 rounded"
+          className="p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
         />
         <input
           type="number"
@@ -100,18 +100,18 @@ export default function EditForm({
           onChange={(e) =>
             setEditingExperience({ ...editingExperience, year: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
         />
         <div className="flex justify-end gap-3 mt-4">
           <button
             onClick={handleSave}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+            className="px-6 py-3 bg-secondary text-white rounded-lg hover:bg-[#c80036] focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
           >
             Save Changes
           </button>
           <button
             onClick={onCancel}
-            className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+            className="px-6 py-3 bg-[#555] text-white rounded-lg hover:bg-[#444] focus:outline-none focus:ring-2 focus:ring-[#888] w-full sm:w-auto"
           >
             Cancel
           </button>

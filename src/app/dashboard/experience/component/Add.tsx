@@ -47,7 +47,7 @@ export default function AddExperienceForm({ onAdd }: { onAdd: (Experience: any) 
   };
 
   return (
-    <div className="mb-6 min-w-[600px]">
+    <div className="mb-6 ">
       <h2 className="text-xl font-semibold mb-4">Add New Experience</h2>
       <div className="grid grid-cols-1 gap-4">
         <input
@@ -57,7 +57,7 @@ export default function AddExperienceForm({ onAdd }: { onAdd: (Experience: any) 
           onChange={(e) =>
             setNewExperience({ ...newExperience, role: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+              className="p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
         />
         <input
           type="text"
@@ -66,13 +66,13 @@ export default function AddExperienceForm({ onAdd }: { onAdd: (Experience: any) 
           onChange={(e) =>
             setNewExperience({ ...newExperience, company: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+              className="p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
         />
         <textarea
           placeholder="Description"
           value={newExperience.description}
           onChange={(e) => setNewExperience({ ...newExperience, description: e.target.value })}
-          className="border px-4 py-2 rounded"
+              className="p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
         />
 
         <input
@@ -80,14 +80,14 @@ export default function AddExperienceForm({ onAdd }: { onAdd: (Experience: any) 
           placeholder="Year"
           value={newExperience.year}
           onChange={(e) => setNewExperience({ ...newExperience, year: e.target.value })}
-          className="border px-4 py-2 rounded"
+              className="p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
         />
 
         <div className="flex justify-end items-center">
           <button
             onClick={handleAdd}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          >
+            className="bg-secondary text-white px-4 py-2 rounded hover:bg-box-gradient-2 transition duration-200"
+            >
             Add Experience
           </button>
         </div>

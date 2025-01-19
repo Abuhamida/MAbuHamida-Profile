@@ -5,7 +5,7 @@ import EditForm from "./component/Edit";
 import List from "./component/List";
 
 interface Award {
-  id: string; // Ensure id is always a string
+  id: string;
   title: string;
   description: string;
   year: number;
@@ -23,7 +23,6 @@ export default function AwardsDashboard({
   const [error, setError] = useState<string | null>(null);
   const [add, setAdd] = useState(false);
 
-  // Fetch awards from the API
   const getAwards = async () => {
     try {
       const response = await fetch("/api/awards/get");
@@ -36,7 +35,6 @@ export default function AwardsDashboard({
     }
   };
 
-  // Add a new award
   const addAward = async (newAward: Award) => {
     try {
       const response = await fetch("/api/awards/add", {
@@ -52,7 +50,6 @@ export default function AwardsDashboard({
     }
   };
 
-  // Update an existing award
   const updateAward = async (updatedAward: Award) => {
     try {
       const response = await fetch("/api/awards/update", {
@@ -69,7 +66,6 @@ export default function AwardsDashboard({
     }
   };
 
-  // Delete an award by ID
   const deleteAward = async (id: string) => {
     try {
       const response = await fetch("/api/awards/delete", {
@@ -90,35 +86,35 @@ export default function AwardsDashboard({
   }, []);
 
   return (
-    <div className="p-6 w-full">
-      <div className="flex justify-between items-center mb-5 w-full fixed top-0 left-0 px-20 py-3 bg-primary">
+    <div className="md:p-6 w-full bg-mainB">
+      <div className="flex justify-between items-center mb-5 w-full fixed top-0 left-0 px-2 md:px-8 py-4 bg-gradient-to-r from-[#010101] to-[#191717] text-white z-10">
         <button
           onClick={closeSection}
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          className="px-4 py-2 bg-secondary text-white rounded hover:bg-secondary transition duration-200"
         >
-          Close Section
+          Close 
         </button>
-        <h1 className="text-2xl font-bold">Awards Dashboard</h1>
+        <h1 className="md:text-2xl font-bold">Awards Dashboard</h1>
         {add ? (
           <button
             onClick={() => setAdd(false)}
-            className="px-4 py-2 bg-secondary text-white rounded-lg hover:border border-secondary hover:text-secondary hover:bg-white transition-colors duration-200"
+            className="px-4 py-2 bg-primary text-mainB rounded-lg hover:border border-secondary hover:text-secondary hover:bg-box-gradient-2 transition-colors duration-200"
           >
             Cancel
           </button>
         ) : (
           <button
             onClick={() => setAdd(true)}
-            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:border border-green-600 hover:text-green-600 hover:bg-white transition-colors duration-200"
+            className="px-4 py-2 bg-secondary text-white rounded-lg hover:border border-secondary hover:text-secondary hover:bg-box-gradient-2 transition-colors duration-200"
           >
-            Add New Award
+            Add 
           </button>
         )}
       </div>
 
       {error && <p className="text-red-500 mb-4">{error}</p>}
-      {/* Add or Edit Award Form */}
-      <div className="w-full flex justify-center items-center gap-5 pt-12">
+
+      <div className="w-full flex flex-col justify-center items-start gap-5 pt-20 ">
         {(add || editingAward) && (
           <div className="w-full">
             {add && <AddForm onAdd={addAward} />}
@@ -132,12 +128,12 @@ export default function AwardsDashboard({
           </div>
         )}
 
-        <div className="w-full max-w-screen-md">
+        <div className="w-full">
           <List
             awards={awards}
             onEdit={(award) => {
               setEditingAward(award);
-              setAdd(false); // Hide the Add Award Form when editing
+              setAdd(false); 
             }}
             onDelete={deleteAward}
           />

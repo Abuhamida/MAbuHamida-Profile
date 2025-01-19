@@ -50,9 +50,7 @@ export default function AddForm({ onAdd }: { onAdd: (Services: any) => void }) {
 
     const formattedServices = {
       ...newServices,
-      features: newServices.features
-        .split(",")
-        .map((s: string) => s.trim()),
+      features: newServices.features.split(",").map((s: string) => s.trim()),
     };
 
     onAdd(formattedServices);
@@ -71,7 +69,7 @@ export default function AddForm({ onAdd }: { onAdd: (Services: any) => void }) {
   };
 
   return (
-    <div className="mb-6 min-w-[600px]">
+    <div className="mb-6">
       <h2 className="text-xl font-semibold mb-4">Add New Services</h2>
       <div className="grid grid-cols-1 gap-4">
         <div className="flex gap-5 w-full justify-center items-center">
@@ -82,7 +80,7 @@ export default function AddForm({ onAdd }: { onAdd: (Services: any) => void }) {
             onChange={(e) =>
               setNewServices({ ...newServices, name: e.target.value })
             }
-            className="border px-4 py-2 rounded w-full"
+            className="border px-4 py-2 rounded bg-mainB text-white w-full"
           />
         </div>
 
@@ -93,7 +91,7 @@ export default function AddForm({ onAdd }: { onAdd: (Services: any) => void }) {
           onChange={(e) =>
             setNewServices({ ...newServices, category: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
         <textarea
           placeholder="Description"
@@ -101,7 +99,7 @@ export default function AddForm({ onAdd }: { onAdd: (Services: any) => void }) {
           onChange={(e) =>
             setNewServices({ ...newServices, description: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
         <input
           type="text"
@@ -110,7 +108,7 @@ export default function AddForm({ onAdd }: { onAdd: (Services: any) => void }) {
           onChange={(e) =>
             setNewServices({ ...newServices, price: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
         <input
           type="text"
@@ -119,7 +117,7 @@ export default function AddForm({ onAdd }: { onAdd: (Services: any) => void }) {
           onChange={(e) =>
             setNewServices({ ...newServices, discount: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
         <input
           type="text"
@@ -128,7 +126,7 @@ export default function AddForm({ onAdd }: { onAdd: (Services: any) => void }) {
           onChange={(e) =>
             setNewServices({ ...newServices, features: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
         <input
           type="text"
@@ -137,7 +135,7 @@ export default function AddForm({ onAdd }: { onAdd: (Services: any) => void }) {
           onChange={(e) =>
             setNewServices({ ...newServices, delivery: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
         <input
           type="text"
@@ -146,16 +144,17 @@ export default function AddForm({ onAdd }: { onAdd: (Services: any) => void }) {
           onChange={(e) =>
             setNewServices({ ...newServices, revision: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
 
-        <div className="flex justify-center items-center gap-5">
+        <div className="w-full flex flex-col justify-center items-center">
           <button
             onClick={handleAdd}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-secondary text-white px-4 py-2 rounded hover:bg-box-gradient-2 transition duration-200"
           >
-            Add Services
+            Add Service
           </button>
+          
         </div>
       </div>
     </div>

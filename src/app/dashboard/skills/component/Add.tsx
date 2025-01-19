@@ -53,33 +53,33 @@ export default function AddForm({ onAdd }: { onAdd: (project: any) => void }) {
             type="text"
             placeholder="Skill Name"
             value={Skills.name}
-            onChange={(e) =>
-              setSkills({ ...Skills, name: e.target.value })
-            }
-            className="border px-4 py-2 rounded w-full"
+            onChange={(e) => setSkills({ ...Skills, name: e.target.value })}
+            className="border px-4 py-2 rounded w-full bg-mainB text-white"
           />
           <input
             type="text"
             placeholder="category id "
             value={Skills.category_id}
-            onChange={(e) => setSkills({ ...Skills, category_id: e.target.value })}
-            className="border px-4 py-2 rounded w-full"
+            onChange={(e) =>
+              setSkills({ ...Skills, category_id: e.target.value })
+            }
+            className="border px-4 py-2 rounded w-full bg-mainB text-white"
           />
         </div>
 
         <input
-        type="number"
+          type="number"
           placeholder="percentage"
           value={Skills.percentage}
           onChange={(e) => setSkills({ ...Skills, percentage: e.target.value })}
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded w-full bg-mainB text-white"
         />
-        <div className="w-1/2 flex flex-col justify-center items-end">
+        <div className="w-full flex flex-col justify-center items-center">
           <button
             onClick={handleAdd}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 "
+            className="bg-secondary text-white px-4 py-2 rounded hover:bg-box-gradient-2 transition duration-200"
           >
-            Add Skills
+            Add Skill
           </button>
         </div>
       </div>

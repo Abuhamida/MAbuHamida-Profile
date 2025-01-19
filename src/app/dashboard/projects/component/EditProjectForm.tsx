@@ -30,6 +30,7 @@ export default function EditProjectForm({
     setErrorMessage("");
     setSubmitTrue("");
   }, [errorMessage, submitTrue]);
+
   const handleSave = () => {
     if (
       !editingProject.id ||
@@ -60,116 +61,141 @@ export default function EditProjectForm({
     };
 
     onSave(formattedProject);
-    setSubmitTrue("Project Update Successfully");
+    setSubmitTrue("Project Updated Successfully");
   };
 
   return (
-    <div className="mt-6">
-      <h2 className="text-xl font-semibold mb-4">Edit Project</h2>
-      <div className="grid grid-cols-1 gap-4">
-        <input
-          type="text"
-          placeholder="Title"
-          value={editingProject.title}
-          onChange={(e) =>
-            setEditingProject({ ...editingProject, title: e.target.value })
-          }
-          className="border px-4 py-2 rounded"
-        />
-        <textarea
-          placeholder="Description"
-          value={editingProject.description}
-          onChange={(e) =>
-            setEditingProject({
-              ...editingProject,
-              description: e.target.value,
-            })
-          }
-          className="border px-4 py-2 rounded"
-        />
-        <input
-          type="text"
-          placeholder="Sections (comma separated)"
-          value={
-            Array.isArray(editingProject.section)
-              ? editingProject.section.join(", ")
-              : editingProject.section
-          }
-          onChange={(e) =>
-            setEditingProject({
-              ...editingProject,
-              section: e.target.value.split(",").map((s: string) => s.trim()),
-            })
-          }
-          className="border px-4 py-2 rounded"
-        />
-        <input
-          type="text"
-          placeholder="Features (comma separated)"
-          value={
-            Array.isArray(editingProject.features)
-              ? editingProject.features.join(", ")
-              : editingProject.features
-          }
-          onChange={(e) =>
-            setEditingProject({
-              ...editingProject,
-              features: e.target.value.split(",").map((f: string) => f.trim()),
-            })
-          }
-          className="border px-4 py-2 rounded"
-        />
-        <input
-          type="text"
-          placeholder="Technologies (comma separated)"
-          value={
-            Array.isArray(editingProject.technologies)
-              ? editingProject.technologies.join(", ")
-              : editingProject.technologies
-          }
-          onChange={(e) =>
-            setEditingProject({
-              ...editingProject,
-              technologies: e.target.value
-                .split(",")
-                .map((t: string) => t.trim()),
-            })
-          }
-          className="border px-4 py-2 rounded"
-        />
-        <div className="flex gap-5 justify-center items-center w-full">
+    <div className="mx-auto rounded-lg shadow-lg bg-mainB">
+      <h2 className="text-2xl font-semibold text-center mb-6 text-primary">
+        Edit Project
+      </h2>
+      <div className="space-y-6">
+        <div>
           <input
             type="text"
-            placeholder="Image URL"
-            value={editingProject.image}
+            placeholder="Title"
+            value={editingProject.title}
             onChange={(e) =>
-              setEditingProject({ ...editingProject, image: e.target.value })
+              setEditingProject({ ...editingProject, title: e.target.value })
             }
-            className="border px-4 py-2 rounded w-full"
-          />
-          <input
-            type="text"
-            placeholder="GitHub Link"
-            value={editingProject.link}
-            onChange={(e) =>
-              setEditingProject({ ...editingProject, link: e.target.value })
-            }
-            className="border px-4 py-2 rounded w-full"
+            className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
           />
         </div>
-
-        <textarea
-          placeholder="Details"
-          value={editingProject.details}
-          onChange={(e) =>
-            setEditingProject({ ...editingProject, details: e.target.value })
-          }
-          className="border px-4 py-2 rounded"
-        />
-        <div className="flex gap-5 w-full justify-center items-center">
-          <div className="w-full flex gap-3 justify-start items-center">
-            <label htmlFor="">Love Count</label>
+        <div>
+          <textarea
+            placeholder="Description"
+            value={editingProject.description}
+            onChange={(e) =>
+              setEditingProject({
+                ...editingProject,
+                description: e.target.value,
+              })
+            }
+            className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
+            rows={4}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Sections (comma separated)"
+            value={
+              Array.isArray(editingProject.section)
+                ? editingProject.section.join(", ")
+                : editingProject.section
+            }
+            onChange={(e) =>
+              setEditingProject({
+                ...editingProject,
+                section: e.target.value.split(",").map((s: string) => s.trim()),
+              })
+            }
+            className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Features (comma separated)"
+            value={
+              Array.isArray(editingProject.features)
+                ? editingProject.features.join(", ")
+                : editingProject.features
+            }
+            onChange={(e) =>
+              setEditingProject({
+                ...editingProject,
+                features: e.target.value
+                  .split(",")
+                  .map((f: string) => f.trim()),
+              })
+            }
+            className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Technologies (comma separated)"
+            value={
+              Array.isArray(editingProject.technologies)
+                ? editingProject.technologies.join(", ")
+                : editingProject.technologies
+            }
+            onChange={(e) =>
+              setEditingProject({
+                ...editingProject,
+                technologies: e.target.value
+                  .split(",")
+                  .map((t: string) => t.trim()),
+              })
+            }
+            className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
+          />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
             <input
+              type="text"
+              placeholder="Image URL"
+              value={editingProject.image}
+              onChange={(e) =>
+                setEditingProject({ ...editingProject, image: e.target.value })
+              }
+              className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="GitHub Link"
+              value={editingProject.link}
+              onChange={(e) =>
+                setEditingProject({ ...editingProject, link: e.target.value })
+              }
+              className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+          </div>
+        </div>
+
+        <div>
+          <textarea
+            placeholder="Details"
+            value={editingProject.details}
+            onChange={(e) =>
+              setEditingProject({ ...editingProject, details: e.target.value })
+            }
+            className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
+            rows={4}
+          />
+        </div>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+          <div className="flex items-center space-x-2 w-full sm:w-auto">
+            <label htmlFor="love" className="text-lg text-white">
+              Love Count
+            </label>
+            <input
+              id="love"
               type="number"
               placeholder="Love Count"
               value={editingProject.love}
@@ -179,19 +205,19 @@ export default function EditProjectForm({
                   love: parseInt(e.target.value) || 0,
                 })
               }
-              className="border px-4 py-2 rounded"
+              className="p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
             />
           </div>
-          <div className="mt-4 w-full flex gap-3 justify-end items-center ">
+          <div className="flex space-x-4 w-full sm:w-auto">
             <button
               onClick={handleSave}
-              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+              className="px-6 py-3 bg-secondary text-white rounded-lg hover:bg-[#c80036] focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
             >
               Save Changes
             </button>
             <button
               onClick={onCancel}
-              className="bg-gray-500 text-white px-4 py-2 rounded ml-2 hover:bg-gray-600"
+              className="px-6 py-3 bg-[#555] text-white rounded-lg hover:bg-[#444] focus:outline-none focus:ring-2 focus:ring-[#888] w-full sm:w-auto"
             >
               Cancel
             </button>

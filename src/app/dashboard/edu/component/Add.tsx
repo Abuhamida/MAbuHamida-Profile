@@ -45,8 +45,10 @@ export default function AddEduForm({ onAdd }: { onAdd: (Edu: any) => void }) {
   };
 
   return (
-    <div className="mb-6 min-w-[600px]">
-      <h2 className="text-xl font-semibold mb-4">Add New Education</h2>
+    <div className="mb-6 ">
+      <h2 className="text-2xl font-semibold text-white mb-4">
+        Add New Education
+      </h2>
       <div className="grid grid-cols-1 gap-4">
         <input
           type="text"
@@ -55,13 +57,13 @@ export default function AddEduForm({ onAdd }: { onAdd: (Edu: any) => void }) {
           onChange={(e) =>
             setNewEdu({ ...newEdu, institution: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border border-primary px-4 py-2 rounded-lg text-white bg-transparent focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <textarea
           placeholder="Description"
           value={newEdu.degree}
           onChange={(e) => setNewEdu({ ...newEdu, degree: e.target.value })}
-          className="border px-4 py-2 rounded"
+          className="border border-primary px-4 py-2 rounded-lg text-white bg-transparent focus:outline-none focus:ring-2 focus:ring-secondary"
         />
 
         <input
@@ -69,13 +71,13 @@ export default function AddEduForm({ onAdd }: { onAdd: (Edu: any) => void }) {
           placeholder="Year"
           value={newEdu.year}
           onChange={(e) => setNewEdu({ ...newEdu, year: e.target.value })}
-          className="border px-4 py-2 rounded"
+          className="border border-primary px-4 py-2 rounded-lg text-white bg-transparent focus:outline-none focus:ring-2 focus:ring-secondary"
         />
 
-        <div className="flex justify-end items-center">
+        <div className="w-full flex flex-col justify-center items-center">
           <button
             onClick={handleAdd}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-secondary text-white px-6 py-2 rounded-lg hover:bg-[#c80036] transition-colors"
           >
             Add Edu
           </button>

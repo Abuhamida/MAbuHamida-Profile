@@ -1,6 +1,6 @@
 "use client";
-import React, { useState,useEffect } from "react";
-import {  toast } from "react-toastify";
+import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 export default function AddProjectForm({
   onAdd,
@@ -39,7 +39,7 @@ export default function AddProjectForm({
   }, [errorMessage, submitTrue]);
 
   const handleAdd = () => {
-    // التحقق من الحقول المطلوبة
+    // Check for required fields
     if (
       !newProject.id ||
       !newProject.section ||
@@ -51,7 +51,7 @@ export default function AddProjectForm({
       !newProject.technologies ||
       !newProject.details
     ) {
-      setErrorMessage('Please Fill All Fields')
+      setErrorMessage("Please Fill All Fields");
       return;
     }
 
@@ -66,7 +66,7 @@ export default function AddProjectForm({
 
     onAdd(formattedProject);
 
-    setSubmitTrue("Project Added Successfully")
+    setSubmitTrue("Project Added Successfully");
     setNewProject({
       id: "",
       section: "",
@@ -82,8 +82,8 @@ export default function AddProjectForm({
   };
 
   return (
-    <div className="mb-6">
-      <h2 className="text-xl font-semibold mb-4">Add New Project</h2>
+    <div className="mb-6 text-primary">
+      <h2 className="text-xl font-semibold mb-4 text-white">Add New Project</h2>
       <div className="grid grid-cols-1 gap-4">
         <div className="flex gap-5 w-full justify-center items-center">
           <input
@@ -93,7 +93,7 @@ export default function AddProjectForm({
             onChange={(e) =>
               setNewProject({ ...newProject, id: e.target.value })
             }
-            className="border px-4 py-2 rounded w-full"
+            className="border px-4 py-2 rounded w-full bg-mainB text-white"
           />
           <input
             type="text"
@@ -102,7 +102,7 @@ export default function AddProjectForm({
             onChange={(e) =>
               setNewProject({ ...newProject, title: e.target.value })
             }
-            className="border px-4 py-2 rounded w-full"
+            className="border px-4 py-2 rounded w-full bg-mainB text-white"
           />
         </div>
 
@@ -112,7 +112,7 @@ export default function AddProjectForm({
           onChange={(e) =>
             setNewProject({ ...newProject, description: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
         <input
           type="text"
@@ -121,7 +121,7 @@ export default function AddProjectForm({
           onChange={(e) =>
             setNewProject({ ...newProject, section: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
         <input
           type="text"
@@ -130,7 +130,7 @@ export default function AddProjectForm({
           onChange={(e) =>
             setNewProject({ ...newProject, features: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
         <input
           type="text"
@@ -139,7 +139,7 @@ export default function AddProjectForm({
           onChange={(e) =>
             setNewProject({ ...newProject, technologies: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
         <div className="flex justify-center items-center gap-5">
           <input
@@ -149,7 +149,7 @@ export default function AddProjectForm({
             onChange={(e) =>
               setNewProject({ ...newProject, image: e.target.value })
             }
-            className="border px-4 py-2 rounded w-full"
+            className="border px-4 py-2 rounded w-full bg-mainB text-white"
           />
           <input
             type="text"
@@ -158,7 +158,7 @@ export default function AddProjectForm({
             onChange={(e) =>
               setNewProject({ ...newProject, link: e.target.value })
             }
-            className="border px-4 py-2 rounded w-full"
+            className="border px-4 py-2 rounded w-full bg-mainB text-white"
           />
         </div>
 
@@ -168,11 +168,13 @@ export default function AddProjectForm({
           onChange={(e) =>
             setNewProject({ ...newProject, details: e.target.value })
           }
-          className="border px-4 py-2 rounded"
+          className="border px-4 py-2 rounded bg-mainB text-white"
         />
         <div className="flex gap-5 justify-center items-center">
-          <div className="flex justify-start items-center gap-3 w-full ">
-            <label htmlFor="">love count</label>
+          <div className="flex justify-start items-center gap-3 w-full">
+            <label htmlFor="" className="text-white">
+              Love Count
+            </label>
             <input
               type="number"
               placeholder="Love Count"
@@ -183,14 +185,14 @@ export default function AddProjectForm({
                   love: parseInt(e.target.value) || 0,
                 })
               }
-              className="border px-4 py-2 rounded "
+              className="border px-4 py-2 rounded bg-mainB text-white"
             />
           </div>
 
           <div className="w-1/2 flex flex-col justify-center items-end">
             <button
               onClick={handleAdd}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 "
+              className="bg-secondary text-white px-4 py-2 rounded hover:bg-box-gradient-2 transition duration-200"
             >
               Add Project
             </button>
