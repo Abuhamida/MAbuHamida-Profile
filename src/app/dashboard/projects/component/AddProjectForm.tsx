@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { nanoid } from "nanoid";
+import { supabase } from "@/app/data/supabaseClient";
 
 export default function AddProjectForm({
   onAdd,
@@ -20,6 +22,7 @@ export default function AddProjectForm({
     love: 0,
   });
 
+  const [selectedFile, setSelectedFile] = useState<File | null>(null); // State for the selected file
   const [errorMessage, setErrorMessage] = useState("");
   const [submitTrue, setSubmitTrue] = useState("");
 
@@ -38,7 +41,40 @@ export default function AddProjectForm({
     setSubmitTrue("");
   }, [errorMessage, submitTrue]);
 
-  const handleAdd = () => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
+  const handleUpload = async () => {
+    if (!selectedFile) {
+      setErrorMessage("Please select an image file.");
+      return;
+    }
+
+    const filename = nanoid(); // Generate a unique filename
+    const fileExtension = selectedFile.name.split(".").pop();
+
+    // Upload the file to Supabase Storage
+    const { data, error } = await supabase.storage
+      .from("projectsImage") // Replace with your bucket name
+      .upload(`${filename}.${fileExtension}`, selectedFile);
+
+    if (error) {
+      setErrorMessage("Error uploading file: " + error.message);
+      return;
+    }
+
+    // Get the public URL of the uploaded file
+    const { data: file } = await supabase.storage
+      .from("projectsImage")
+      .getPublicUrl(data?.path);
+
+    return file?.publicUrl; // Return the public URL
+  };
+
+  const handleAdd = async () => {
     // Check for required fields
     if (
       !newProject.id ||
@@ -46,7 +82,6 @@ export default function AddProjectForm({
       !newProject.title ||
       !newProject.description ||
       !newProject.features ||
-      !newProject.image ||
       !newProject.link ||
       !newProject.technologies ||
       !newProject.details
@@ -55,6 +90,14 @@ export default function AddProjectForm({
       return;
     }
 
+    // Upload the image and get the URL
+    const imageUrl = await handleUpload();
+    if (!imageUrl) {
+      setErrorMessage("Failed to upload image.");
+      return;
+    }
+
+    // Format the project data
     const formattedProject = {
       ...newProject,
       section: newProject.section.split(",").map((s: string) => s.trim()),
@@ -62,10 +105,13 @@ export default function AddProjectForm({
       technologies: newProject.technologies
         .split(",")
         .map((t: string) => t.trim()),
+      image: imageUrl, // Use the uploaded image URL
     };
 
+    // Call the onAdd function to save the project
     onAdd(formattedProject);
 
+    // Reset the form
     setSubmitTrue("Project Added Successfully");
     setNewProject({
       id: "",
@@ -79,6 +125,7 @@ export default function AddProjectForm({
       details: "",
       love: 0,
     });
+    setSelectedFile(null); // Clear the selected file
   };
 
   return (
@@ -143,12 +190,8 @@ export default function AddProjectForm({
         />
         <div className="flex justify-center items-center gap-5">
           <input
-            type="text"
-            placeholder="Image URL"
-            value={newProject.image}
-            onChange={(e) =>
-              setNewProject({ ...newProject, image: e.target.value })
-            }
+            type="file"
+            onChange={handleFileChange}
             className="border px-4 py-2 rounded w-full bg-mainB text-white"
           />
           <input

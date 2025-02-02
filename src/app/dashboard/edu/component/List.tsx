@@ -12,6 +12,7 @@ export default function List({
     institution: string;
     degree: string;
     year: number;
+    Image_url : string;
   }[];
   onEdit: (award: any) => void;
   onDelete: (id: string) => void;
@@ -44,6 +45,11 @@ export default function List({
                       year
                     </p>
                   </th>
+                  <th className="p-4 border-b border-r border-blue-gray-100 bg-blue-gray-50 overflow-clip">
+                    <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70 ">
+                      Image URL
+                    </p>
+                  </th>
                   <th className="p-4 border-b border-r  w-20 border-blue-gray-100 bg-blue-gray-50">
                     <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"></p>
                   </th>
@@ -74,6 +80,11 @@ export default function List({
                     <td className="p-4 border-b border-r border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
                         {edu.year}
+                      </p>
+                    </td>
+                    <td className="p-4 border-b border-r border-blue-gray-50">
+                      <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                        {edu.Image_url}
                       </p>
                     </td>
 

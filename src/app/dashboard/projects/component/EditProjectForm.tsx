@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { useState, useEffect } from "react";
+import { nanoid } from "nanoid";
+import { supabase } from "@/app/data/supabaseClient";
 
 export default function EditProjectForm({
   project,
@@ -13,6 +14,7 @@ export default function EditProjectForm({
   onCancel: () => void;
 }) {
   const [editingProject, setEditingProject] = useState(project);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null); // State for the selected file
   const [errorMessage, setErrorMessage] = useState("");
   const [submitTrue, setSubmitTrue] = useState("");
 
@@ -31,14 +33,46 @@ export default function EditProjectForm({
     setSubmitTrue("");
   }, [errorMessage, submitTrue]);
 
-  const handleSave = () => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
+  const handleUpload = async () => {
+    if (!selectedFile) {
+      return editingProject.image; // Return the existing image URL if no new file is selected
+    }
+
+    const filename = nanoid(); // Generate a unique filename
+    const fileExtension = selectedFile.name.split(".").pop();
+
+    // Upload the file to Supabase Storage
+    const { data, error } = await supabase.storage
+      .from("projectsImage") // Replace with your bucket name
+      .upload(`${filename}.${fileExtension}`, selectedFile);
+
+    if (error) {
+      setErrorMessage("Error uploading file: " + error.message);
+      return null;
+    }
+
+    // Get the public URL of the uploaded file
+    const { data: file } = await supabase.storage
+      .from("projectsImage")
+      .getPublicUrl(data?.path);
+
+    return file?.publicUrl; // Return the new public URL
+  };
+
+  const handleSave = async () => {
+    // Check for required fields
     if (
       !editingProject.id ||
       !editingProject.section ||
       !editingProject.title ||
       !editingProject.description ||
       !editingProject.features ||
-      !editingProject.image ||
       !editingProject.link ||
       !editingProject.technologies ||
       !editingProject.details
@@ -47,6 +81,14 @@ export default function EditProjectForm({
       return;
     }
 
+    // Upload the new image (if selected) and get the URL
+    const newImageUrl = await handleUpload();
+    if (selectedFile && !newImageUrl) {
+      setErrorMessage("Failed to upload image.");
+      return;
+    }
+
+    // Format the project data
     const formattedProject = {
       ...editingProject,
       section: Array.isArray(editingProject.section)
@@ -58,9 +100,13 @@ export default function EditProjectForm({
       technologies: Array.isArray(editingProject.technologies)
         ? editingProject.technologies
         : editingProject.technologies.split(",").map((t: string) => t.trim()),
+      image: newImageUrl || editingProject.image, // Use the new image URL or the existing one
     };
 
+    // Call the onSave function to update the project
     onSave(formattedProject);
+
+    // Show success message
     setSubmitTrue("Project Updated Successfully");
   };
 
@@ -156,12 +202,8 @@ export default function EditProjectForm({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
             <input
-              type="text"
-              placeholder="Image URL"
-              value={editingProject.image}
-              onChange={(e) =>
-                setEditingProject({ ...editingProject, image: e.target.value })
-              }
+              type="file"
+              onChange={handleFileChange}
               className="w-full p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary"
             />
           </div>

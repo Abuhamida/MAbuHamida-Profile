@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { nanoid } from "nanoid";
+import { supabase } from "@/app/data/supabaseClient";
 
 export default function EditForm({
   Experience,
@@ -13,11 +15,13 @@ export default function EditForm({
     company: string;
     year: number | string;
     description: string;
+    Image_url: string;
   };
   onSave: (updatedExperience: any) => void;
   onCancel: () => void;
 }) {
   const [editingExperience, setEditingExperience] = useState(Experience);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null); // State for the selected file
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -32,7 +36,39 @@ export default function EditForm({
     setSuccessMessage("");
   }, [errorMessage, successMessage]);
 
-  const handleSave = () => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
+  const handleUpload = async () => {
+    if (!selectedFile) {
+      return editingExperience.Image_url; // Return the existing image URL if no new file is selected
+    }
+
+    const filename = nanoid(); // Generate a unique filename
+    const fileExtension = selectedFile.name.split(".").pop();
+
+    // Upload the file to Supabase Storage
+    const { data, error } = await supabase.storage
+      .from("EX_Image") // Replace with your bucket name
+      .upload(`${filename}.${fileExtension}`, selectedFile);
+
+    if (error) {
+      setErrorMessage("Error uploading file: " + error.message);
+      return null;
+    }
+
+    // Get the public URL of the uploaded file
+    const { data: file } = await supabase.storage
+      .from("EX_Image")
+      .getPublicUrl(data?.path);
+
+    return file?.publicUrl; // Return the new public URL
+  };
+
+  const handleSave = async () => {
     if (
       !editingExperience.role ||
       !editingExperience.company ||
@@ -43,9 +79,17 @@ export default function EditForm({
       return;
     }
 
+    // Upload the new image (if selected) and get the URL
+    const newImageUrl = await handleUpload();
+    if (selectedFile && !newImageUrl) {
+      setErrorMessage("Failed to upload image.");
+      return;
+    }
+
     const formattedExperience = {
       ...editingExperience,
       year: Number(editingExperience.year),
+      Image_url: newImageUrl || editingExperience.Image_url,
     };
 
     if (isNaN(formattedExperience.year) || formattedExperience.year <= 0) {
@@ -101,6 +145,11 @@ export default function EditForm({
             setEditingExperience({ ...editingExperience, year: e.target.value })
           }
           className="p-3 border rounded-md bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-secondary w-full sm:w-auto"
+        />
+        <input
+          type="file"
+          onChange={handleFileChange}
+          className="border border-primary px-4 py-2 rounded-lg text-white bg-transparent focus:outline-none focus:ring-2 focus:ring-secondary"
         />
         <div className="flex justify-end gap-3 mt-4">
           <button

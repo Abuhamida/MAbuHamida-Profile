@@ -9,6 +9,7 @@ interface Award {
   title: string;
   description: string;
   year: number;
+  Image_url: string;
 }
 
 interface AwardsDashboardProps {

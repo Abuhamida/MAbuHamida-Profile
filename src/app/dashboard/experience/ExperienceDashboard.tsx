@@ -10,6 +10,7 @@ interface Experience {
   company: string;
   year: number;
   description: string;
+  Image_url: string;
 }
 
 interface ExperienceDashboardProps {

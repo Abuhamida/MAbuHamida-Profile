@@ -21,17 +21,42 @@ export default function About({ setActiveSection }: NavBarProps) {
       <div className="relative z-10 px-4 md:px-24 flex flex-col justify-center items-center w-full">
         <div className="w-full text-left mb-6 flex flex-col md:flex-row justify-center items-center gap-3 md:gap-10">
           <div className="w-full">
-            <h2 className="text-4xl md:text-4xl font-bold text-primary dark:text-secondary ">
+            <h2 className="text-4xl md:text-4xl font-bold text-primary dark:text-secondary mb-3 ">
               About
             </h2>
             <p className="md:text-lg">
-              Welcome to my portfolio! I am Mohamed Ramdan AbuHamida, an
-              enthusiastic developer with a strong background in AI and
-              front-end development.
+              Hi! I'm Mohamed AbuHamida, a passionate AI Engineer with 3 years
+              of experience, specializing in Machine Learning, Computer Vision,
+              and Front-End Development. My expertise lies in creating
+              innovative, user-friendly, and efficient solutions that seamlessly
+              bridge the gap between AI and real-world applications.
+              <br />
+              <br />
+              I thrive on transforming complex problems into scalable,
+              intelligent solutions that drive business growth. Whether it's
+              automating workflows, enhancing decision-making, or optimizing
+              operations, I bring AI-driven value to the table.
+              <br />
+              <br />
+              In my career, I’ve worked across multiple sectors—medicine,
+              academia, and e-commerce, delivering projects that not only solve
+              challenges but also push the boundaries of what's possible with
+              AI.
             </p>
+
+            <h1 className="text-4xl md:text-4xl font-bold text-primary dark:text-secondary mt-8 mb-3 ">
+            Unique Selling Proposition (USP)
+          </h1>
+          <p className="md:text-lg ">
+            Empowering businesses through AI-driven solutions, I specialize in
+            designing and deploying intelligent, scalable applications that make
+            advanced AI technologies practical and accessible, turning them into
+            tools that automate processes, optimize operations, and drive
+            innovation.
+          </p>
           </div>
-          <div className=" w-2/3 md:w-full">
-            <div className="flex flex-col md:flex-row justify-between items-center rounded-xl shadow shadow-white/10">
+          <div className=" w-2/3 md:w-1/3">
+            <div className="flex flex-col justify-between items-center rounded-xl shadow shadow-white/10">
               <button
                 className={` px-4 py-5 w-full text-center shadow-white/10 text-secondary shadow-md hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700 `}
               >
@@ -57,6 +82,18 @@ export default function About({ setActiveSection }: NavBarProps) {
             </div>
           </div>
         </div>
+        {/* <div className="w-full text-start pb-5">
+          <h1 className="text-4xl md:text-4xl font-bold text-primary dark:text-secondary ">
+            Unique Selling Proposition (USP)
+          </h1>
+          <p className="md:text-lg w-2/3">
+            Empowering businesses through AI-driven solutions, I specialize in
+            designing and deploying intelligent, scalable applications that make
+            advanced AI technologies practical and accessible, turning them into
+            tools that automate processes, optimize operations, and drive
+            innovation.
+          </p>
+        </div> */}
         <div className="w-full flex flex-col justify-center items-center">
           <div className="w-2/3 bg-black/50 rounded-lg h-1"></div>
         </div>

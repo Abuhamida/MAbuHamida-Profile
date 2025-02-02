@@ -13,11 +13,11 @@ export default function List({
     title: string;
     description: string;
     year: number;
+    Image_url: string;
   }[];
   onEdit: (award: any) => void;
   onDelete: (id: string) => void;
 }) {
-
   return (
     <div className="w-full flex-col justify-center items-center ">
       {awards && awards.length > 0 ? (
@@ -46,7 +46,12 @@ export default function List({
                       Year
                     </p>
                   </th>
-                  
+                  <th className="p-4 border-b border-r border-blue-gray-100 bg-blue-gray-50 overflow-clip">
+                    <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70 ">
+                      Image Url
+                    </p>
+                  </th>
+
                   <th className="p-4 border-b border-r  w-20 border-blue-gray-100 bg-blue-gray-50">
                     <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"></p>
                   </th>
@@ -55,12 +60,12 @@ export default function List({
                   </th>
                 </tr>
               </thead>
-              {awards.map((awards,index) => (
+              {awards.map((awards, index) => (
                 <tbody key={awards.id}>
                   <tr>
                     <td className="p-4 border-b border-r border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                        {index+1}
+                        {index + 1}
                       </p>
                     </td>
                     <td className="p-4 border-b border-r border-blue-gray-50">
@@ -68,7 +73,7 @@ export default function List({
                         {awards.title}
                       </p>
                     </td>
-                   
+
                     <td className="p-4 border-b border-r border-blue-gray-50 ">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 w-full">
                         {awards.description}
@@ -77,6 +82,11 @@ export default function List({
                     <td className="p-4 border-b border-r border-blue-gray-50 ">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 w-full">
                         {awards.year}
+                      </p>
+                    </td>
+                    <td className="p-4 border-b border-r border-blue-gray-50 ">
+                      <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 w-full">
+                        {awards.Image_url}
                       </p>
                     </td>
                     <td className="p-4 border-b border-r border-blue-gray-50">
@@ -100,8 +110,6 @@ export default function List({
               ))}
             </table>
           </div>
-
-      
         </div>
       ) : (
         <div className="flex w-full min-h-screen justify-center items-center">

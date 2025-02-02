@@ -15,6 +15,7 @@ export default function List({
     company: string;
     year: number;
     description: string;
+    Image_url: string;
   }[];
   onEdit: (award: any) => void;
   onDelete: (id: string) => void;
@@ -45,6 +46,11 @@ export default function List({
                   <th className="p-4 border-b border-r border-blue-gray-100 bg-blue-gray-50 overflow-clip">
                     <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70 ">
                       Description
+                    </p>
+                  </th>
+                  <th className="p-4 border-b border-r border-blue-gray-100 bg-blue-gray-50 overflow-clip">
+                    <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70 ">
+                      Image URL
                     </p>
                   </th>
                   <th className="p-4 border-b border-r border-blue-gray-100 bg-blue-gray-50">
@@ -82,6 +88,11 @@ export default function List({
                     <td className="p-4 border-b border-r border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
                         {experience.description}
+                      </p>
+                    </td>
+                    <td className="p-4 border-b border-r border-blue-gray-50">
+                      <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                        {experience.Image_url}
                       </p>
                     </td>
                     <td className="p-4 border-b border-r border-blue-gray-50 ">

@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaUpwork } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { useState } from "react";
+import Image from "next/image";
 
 interface NavBarProps {
   setActiveSection: (section: string) => void;
@@ -80,6 +82,11 @@ export default function Contact({ setActiveSection }: NavBarProps) {
       icon: FaGithub,
       link: "https://github.com/AbuHamida",
     },
+    {
+      name: "UpWork",
+      icon: FaUpwork,
+      link: "https://www.upwork.com/freelancers/~0191d02b8deff4294c?viewMode=1",
+    },
   ];
 
   return (
@@ -122,7 +129,7 @@ export default function Contact({ setActiveSection }: NavBarProps) {
               <span>{method.info}</span>
             </a>
           ))}
-          <div className="flex  gap-10 mt-6 w-full  justify-center md:justify-start">
+          <div className="flex gap-10 mt-6 w-full  justify-center md:justify-start">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -134,6 +141,18 @@ export default function Contact({ setActiveSection }: NavBarProps) {
                 <social.icon className="text-2xl" />
               </a>
             ))}
+            <a href="https://mostaql.com/u/Mohammed_145"
+            target="_blank"
+            className="h-full flex flex-col justify-center items-center hover:border-b-2 hover:border-secondary">
+              
+              <Image src={'/mostaql-logo-white.svg'} alt={''} width={50} height={50}  className="w-16"></Image>
+            </a>
+            <a href="https://khamsat.com/user/m_abuhamida"
+            target="_blank"
+            className="h-full flex flex-col justify-center items-center hover:border-b-2 hover:border-secondary">
+              
+              <Image src={'/khamsat.png'} alt={''} width={500} height={500} className="w-16"></Image>
+            </a>
           </div>
         </motion.div>
 

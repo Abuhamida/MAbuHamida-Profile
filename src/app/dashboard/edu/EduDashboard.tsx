@@ -9,6 +9,7 @@ interface Edu {
   institution: string;
   degree: string;
   year: number;
+  Image_url: string;
 }
 
 interface EducationDashboardProps {
@@ -96,7 +97,7 @@ export default function EducationDashboard({
           onClick={closeSection}
           className="px-4 py-2 bg-secondary text-white rounded hover:bg-secondary transition duration-200"
         >
-          Close 
+          Close
         </button>
         <h1 className="md:text-2xl font-bold">Education Dashboard</h1>
         {add ? (
@@ -111,7 +112,7 @@ export default function EducationDashboard({
             onClick={() => setAdd(true)}
             className="px-4 py-2 bg-secondary text-white rounded-lg hover:border border-secondary hover:text-secondary hover:bg-box-gradient-2 transition-colors duration-200"
           >
-            Add 
+            Add
           </button>
         )}
       </div>
