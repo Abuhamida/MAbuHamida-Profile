@@ -7,7 +7,9 @@ import { FaUpwork } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { useState } from "react";
 import Image from "next/image";
-
+import Link from "next/link";
+import khamsat from "../../../public/khamsat.png";
+import mostaqel from "@../../../public/mostaql-logo-white.svg";
 interface NavBarProps {
   setActiveSection: (section: string) => void;
 }
@@ -70,21 +72,37 @@ export default function Contact({ setActiveSection }: NavBarProps) {
     {
       name: "FaceBook",
       icon: FaFacebookF,
+      image: "",
       link: "https://www.facebook.com/mohammed.abuhameda.3",
     },
     {
       name: "LinkedIn",
       icon: FaLinkedinIn,
+      image: "",
       link: "https://www.linkedin.com/in/mohammed-abuhamida",
     },
     {
       name: "Github",
       icon: FaGithub,
+      image: "",
       link: "https://github.com/AbuHamida",
     },
     {
       name: "UpWork",
       icon: FaUpwork,
+      image: "",
+      link: "https://www.upwork.com/freelancers/~0191d02b8deff4294c?viewMode=1",
+    },
+    {
+      name: "Mostaql",
+      icon: "",
+      image: mostaqel,
+      link: "https://www.upwork.com/freelancers/~0191d02b8deff4294c?viewMode=1",
+    },
+    {
+      name: "Khamsat",
+      icon: "",
+      image: khamsat,
       link: "https://www.upwork.com/freelancers/~0191d02b8deff4294c?viewMode=1",
     },
   ];
@@ -117,45 +135,43 @@ export default function Contact({ setActiveSection }: NavBarProps) {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center md:items-start space-y-6 justify-center"
+          className="flex flex-col items-center space-y-6 justify-center"
         >
-          {contactMethods.map((method) => (
-            <a
-              key={method.name}
-              href={method.link}
-              className="flex items-center gap-4 text-lg hover:text-secondary transition-all duration-200"
-            >
-              <method.icon className="text-2xl" />
-              <span>{method.info}</span>
-            </a>
-          ))}
-          <div className="flex gap-10 mt-6 w-full  justify-center md:justify-start">
-            {socialLinks.map((social) => (
+          <div className="flex flex-col items-start space-y-6 justify-center w-full">
+            {contactMethods.map((method) => (
               <a
-                key={social.name}
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-secondary transition-all duration-300"
+                key={method.name}
+                href={method.link}
+                className="flex items-center gap-4 text-lg hover:text-secondary transition-all duration-200"
               >
-                <social.icon className="text-2xl" />
+                <method.icon className="text-2xl" />
+                <span>{method.info}</span>
               </a>
             ))}
-            <a href="https://mostaql.com/u/Mohammed_145"
-            target="_blank"
-            className="h-full flex flex-col justify-center items-center hover:border-b-2 hover:border-secondary">
-              
-              <Image src={'/mostaql-logo-white.svg'} alt={''} width={50} height={50}  className="w-16"></Image>
-            </a>
-            <a href="https://khamsat.com/user/m_abuhamida"
-            target="_blank"
-            className="h-full flex flex-col justify-center items-center hover:border-b-2 hover:border-secondary">
-              
-              <Image src={'/khamsat.png'} alt={''} width={500} height={500} className="w-16"></Image>
-            </a>
+          </div>
+
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 ">
+            {socialLinks.map((social, index) => (
+              <Link
+                key={index}
+                href={social.link}
+                target="_blank"
+                className="hover:text-secondary transition-all duration-300 flex items-center justify-center"
+              >
+                {social.icon && <social.icon className="text-3xl md:text-2xl" />}
+                {social.image && (
+                  <Image
+                    src={social.image}
+                    alt={social.name}
+                    height={40}
+                    width={40}
+                    className="w-12 pb-1 object-contain hover:border-b-2 hover:border-secondary"
+                  />
+                )}
+              </Link>
+            ))}
           </div>
         </motion.div>
-
         {/* Message Form */}
         <motion.form
           initial={{ opacity: 0, x: 30 }}

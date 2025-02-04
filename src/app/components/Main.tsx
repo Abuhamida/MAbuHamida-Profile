@@ -23,7 +23,7 @@ export default function Main2({ setActiveSection }: NavBarProps) {
           alt=""
           width={1000}
           height={1000}
-          className="w-72 h-[37rem] absolute bottom-10 md:bottom-0 md:w-[400px] md:h-[700px] z-10 pt-10 select-none "
+          className="w-[17rem] h-[37rem] absolute bottom-10 md:bottom-0 md:w-[400px] md:h-[700px] z-10 pt-10 select-none "
         />
 
         <div className="w-full absolute top-64 md:top-1/4 ">
@@ -37,22 +37,6 @@ export default function Main2({ setActiveSection }: NavBarProps) {
         </div>
         <div className=" absolute bottom-20 md:bottom-5 z-50 text-center w-full flex flex-col justify-center items-center  ">
           <div className=" relative w-full flex flex-col justify-center items-center pb-5 md:pb-0">
-            {/* <div className="flex justify-center md:justify-around items-center gap-5 md:gap-2 w-full md:w-[35%]">
-              <h1 className="text-4xl md:text-7xl pinyon-script-regular">
-                Mohamed{" "}
-              </h1>
-              <h2 className="text-secondary text-[8px] md:text-base mt-3">
-                Front-End Developer
-              </h2>
-            </div>
-            <div className="flex justify-between items-center gap-2 md:w-[35%]">
-              <h2 className="text-secondary text-[8px] md:text-base mt-3">
-                PROFESSIONAL ML,DL Developer
-              </h2>
-              <h1 className="text-4xl md:text-7xl pinyon-script-regular">
-                Ramadan
-              </h1>
-            </div> */}
             <Image
               src={"/name.png"}
               alt="name "
@@ -80,20 +64,41 @@ export default function Main2({ setActiveSection }: NavBarProps) {
       <div className=" relative flex flex-col justify-center items-center min-h-10 w-full bg-black z-50 -mt-10 md:mt-0 md:py-5 mb-16">
         <div className="flex justify-center space-x-6 space-mono-regular-italic z-50">
           <motion.button
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, delay: 0.2, ease: "easeInOut" },
+            }}
+            viewport={{ once: true }}
             onClick={() => setActiveSection("about")}
             className="px-6 py-3 text-base md:text-lg font-semibold bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary "
           >
             About Me
           </motion.button>
           <motion.button
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, delay: 0.3, ease: "easeInOut" },
+            }}
+            viewport={{ once: true }}
+            animate={{
+              scale: [1, 1.05, 1], // Creates a pulsing effect
+              transition: {
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              },
+            }}
+            whileHover={{
+              scale: 1, // Stops pulsing on hover
+              transition: { duration: 0.2 },
+            }}
             onClick={() => setActiveSection("projects")}
-            className="px-6 py-3 text-base md:text-lg  font-semibold bg-transparent border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-secondary  "
+            className="px-6 py-3 text-base md:text-lg font-semibold bg-secondary text-primary rounded-lg hover:bg-primary hover:text-secondary "
           >
             My Projects
           </motion.button>

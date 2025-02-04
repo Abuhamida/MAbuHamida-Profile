@@ -5,48 +5,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap");
 body {
-  font-family: "Space Mono", serif;
+  font-family: "Space Mono", sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .space-mono-regular {
-  font-family: "Space Mono", serif;
+  font-family: "Space Mono", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .space-mono-bold {
-  font-family: "Space Mono", serif;
+  font-family: "Space Mono", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
 .space-mono-regular-italic {
-  font-family: "Space Mono", serif;
+  font-family: "Space Mono", sans-serif;
   font-weight: 400;
   font-style: italic;
 }
 
 .space-mono-bold-italic {
-  font-family: "Space Mono", serif;
+  font-family: "Space Mono", sans-serif;
   font-weight: 700;
   font-style: italic;
 }
 
 .pinyon-script-regular {
-  font-family: "Pinyon Script", serif;
+  font-family: "Pinyon Script", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .parisienne-regular {
-  font-family: "Parisienne", serif;
+  font-family: "Parisienne", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .my-soul-regular {
-  font-family: "My Soul", serif;
+  font-family: "My Soul", sans-serif;
   font-weight: 400;
   font-style: normal;
 }

@@ -116,18 +116,39 @@ export default function Projects({ setActiveSection }: NavBarProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg text-center mb-12 max-w-lg text-secondary w-11/12"
+            className="text-base md:text-lg text-center mb-3 max-w-lg text-secondary w-11/12"
           >
             Visit my portfolio and keep your feedback
           </motion.p>
-          <div className=" w-2/3 mb-10">
+           {/* Dropdown for small screens */}
+           <div className="md:hidden w-2/3 mb-6">
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">
+                  Select Project Type
+                </span>
+              </div>
+              <select className="select border border-secondary bg-transparent">
+                <option value="all">All</option>
+                {sections.map((section, index) => (
+                  <option key={index} value={section}>
+                    {section}
+                  </option>
+                ))}
+              </select>
+            </label>
+            
+          </div>
+
+          {/* Buttons for larger screens */}
+          <div className="hidden md:block w-2/3 mb-10">
             <div className="flex flex-col md:flex-row justify-between items-center rounded-xl shadow shadow-white/10">
               <button
                 className={`${
                   visibleSection === "all"
                     ? "shadow-white/10 text-secondary shadow-md"
                     : ""
-                } px-4 py-5  w-full text-center hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700 `}
+                } px-4 py-5 w-full text-center hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700`}
                 onClick={() => setVisibleSection("all")}
               >
                 All
@@ -140,7 +161,7 @@ export default function Projects({ setActiveSection }: NavBarProps) {
                     visibleSection === section
                       ? "shadow-white/10 text-secondary shadow-md"
                       : ""
-                  } px-4 py-5  w-full text-center hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700 `}
+                  } px-4 py-5 w-full text-center hover:shadow-white/10 hover:shadow-md hover:text-secondary rounded-xl font-bold text-lg transition-all duration-700`}
                   onClick={() => setVisibleSection(section)}
                 >
                   {section}
@@ -199,7 +220,7 @@ export default function Projects({ setActiveSection }: NavBarProps) {
                         <h1 className="text-base">{project.love}</h1>
                       </div>
                     </div>
-                    <div className="w-full text-2xl flex items-start flex-col justify-center h-10 mt-2 text-left hover:text-secondary transition-colors duration-500 group/item">
+                    <div className="w-full text-xl md:text-2xl flex items-start flex-col justify-center h-10 mt-2 text-left hover:text-secondary transition-colors duration-500 group/item">
                       <button
                         className="font-bold group/item text-start"
                         onClick={() => handelProjectView(project)}
