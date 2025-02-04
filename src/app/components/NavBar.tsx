@@ -24,7 +24,7 @@ export default function NavBar({ setActiveSection }: NavBarProps) {
 
   const HyperLinks = [
     {
-      name: "FaceBook",
+      name: "Upwork",
       icon: FaUpwork,
       link: "https://www.upwork.com/freelancers/~0191d02b8deff4294c?viewMode=1",
     },
