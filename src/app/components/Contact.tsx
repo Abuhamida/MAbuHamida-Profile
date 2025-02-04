@@ -8,7 +8,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import khamsat from "../../../public/khamsat.png";
+import khamsat from "@../../../public/khamsat.png";
 import mostaqel from "@../../../public/mostaql-logo-white.svg";
 interface NavBarProps {
   setActiveSection: (section: string) => void;
@@ -97,13 +97,13 @@ export default function Contact({ setActiveSection }: NavBarProps) {
       name: "Mostaql",
       icon: "",
       image: mostaqel,
-      link: "https://www.upwork.com/freelancers/~0191d02b8deff4294c?viewMode=1",
+      link: "https://mostaql.com/u/Mohammed_145",
     },
     {
       name: "Khamsat",
       icon: "",
       image: khamsat,
-      link: "https://www.upwork.com/freelancers/~0191d02b8deff4294c?viewMode=1",
+      link: "https://khamsat.com/user/m_abuhamida",
     },
   ];
 

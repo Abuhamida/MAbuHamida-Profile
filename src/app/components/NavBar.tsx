@@ -7,7 +7,7 @@ import Link from "next/link";
 import { IoIosContact } from "react-icons/io";
 import { AiOutlineMessage } from "react-icons/ai";
 import { SiCodeproject } from "react-icons/si";
-import { SiHyperskill } from "react-icons/si";
+import { FaUpwork } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -25,8 +25,8 @@ export default function NavBar({ setActiveSection }: NavBarProps) {
   const HyperLinks = [
     {
       name: "FaceBook",
-      icon: FaFacebookF,
-      link: "https://www.facebook.com/mohammed.abuhameda.3",
+      icon: FaUpwork,
+      link: "https://www.upwork.com/freelancers/~0191d02b8deff4294c?viewMode=1",
     },
     {
       name: "LinkedIn",
